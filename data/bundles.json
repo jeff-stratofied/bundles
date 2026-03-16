@@ -1,3 +1,93 @@
 {
-  "bundles": []
+  "bundles": [
+    {
+      "bundleId": "BDL-202603-001",
+      "bundleName": "CUST-8.71-5.4yr-202603",
+      "strategy": "custom",
+      "status": "offered",
+      "createdBy": "jeff",
+      "createdAt": "2026-03-16T21:02:14.686Z",
+      "updatedAt": "2026-03-16T21:02:14.686Z",
+      "targetBuyer": "nick",
+      "loans": [
+        {
+          "loanId": "C0RAT4N23A",
+          "loanName": "OSU 2024 8.00",
+          "school": "Ohio State",
+          "ownershipPct": 0.5,
+          "principal": 7500,
+          "nominalRate": 8,
+          "termYears": 8,
+          "graceYears": 0.5,
+          "purchasePrice": 3750,
+          "currentBalance": 4130.85,
+          "npv": 1471.0098433115104,
+          "irr": 3.454874181747437,
+          "wal": 3.0699759299061564,
+          "riskTier": "HIGH"
+        },
+        {
+          "loanId": "HCZB8N2L8Z",
+          "loanName": "PIT 2024 8.25",
+          "school": "Pitt",
+          "ownershipPct": 0.5,
+          "principal": 12000,
+          "nominalRate": 8.25,
+          "termYears": 12,
+          "graceYears": 1.5,
+          "purchasePrice": 6000,
+          "currentBalance": 12274.16,
+          "npv": 5554.053825033869,
+          "irr": 7.874408023059369,
+          "wal": 7.959645549048332,
+          "riskTier": "MEDIUM"
+        },
+        {
+          "loanId": "L7IM1YE0Q8",
+          "loanName": "TTCH 2025 10.0",
+          "school": "Texas Tech University",
+          "ownershipPct": 1,
+          "principal": 10000,
+          "nominalRate": 10,
+          "termYears": 10,
+          "graceYears": 0,
+          "purchasePrice": 10000,
+          "currentBalance": 9700.93,
+          "npv": 9043.350402901093,
+          "irr": 9.031098210811615,
+          "wal": 5.858092,
+          "riskTier": "HIGH"
+        },
+        {
+          "loanId": "QVGKDMCI3U",
+          "loanName": "UCLA 2025 7.30",
+          "school": "UCLA",
+          "ownershipPct": 1,
+          "principal": 7500,
+          "nominalRate": 7.3,
+          "termYears": 5,
+          "graceYears": 0,
+          "purchasePrice": 7500,
+          "currentBalance": 5872.6,
+          "npv": 5641.896918633647,
+          "irr": 7.042801505327223,
+          "wal": 2.692909345614124,
+          "riskTier": "MEDIUM"
+        }
+      ],
+      "askingPrice": 21710.31,
+      "askingPremiumPct": 0,
+      "suggestedPrice": 21710.31,
+      "totalPar": 23776.04,
+      "weightedRate": 8.7077,
+      "bundleWAL": 5.38,
+      "bundleNPV": 21710.31,
+      "riskMix": {
+        "HIGH": 2,
+        "MEDIUM": 2
+      },
+      "schoolCount": 4,
+      "notes": ""
+    }
+  ]
 }
