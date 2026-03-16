@@ -1,3 +1,76 @@
 {
-  "bundles": []
+  "bundles": [
+    {
+      "bundleId": "BDL-202603-001",
+      "bundleName": "SEASN-8.51-5.9yr-202603",
+      "strategy": "seasoned",
+      "status": "offered",
+      "createdBy": "jeff",
+      "createdAt": "2026-03-16T21:03:13.303Z",
+      "updatedAt": "2026-03-16T21:03:13.303Z",
+      "targetBuyer": "any",
+      "loans": [
+        {
+          "loanId": "GXCZPI4VJC",
+          "loanName": "MICH 2024 9.00",
+          "school": "Michigan",
+          "ownershipPct": 0.25,
+          "principal": 5000,
+          "nominalRate": 9,
+          "termYears": 10,
+          "graceYears": 0.5,
+          "purchasePrice": 1250,
+          "currentBalance": 4847.86,
+          "npv": 1164.8394423835819,
+          "irr": 8.651147085428237,
+          "wal": 6.2789742276729354,
+          "riskTier": "MEDIUM"
+        },
+        {
+          "loanId": "7EO4B3SHJY",
+          "loanName": "PSU 2024 8.83",
+          "school": "Penn State",
+          "ownershipPct": 0.8999999999999999,
+          "principal": 11000,
+          "nominalRate": 8.83,
+          "termYears": 10,
+          "graceYears": 0,
+          "purchasePrice": 9900,
+          "currentBalance": 3503.08,
+          "npv": 3240.017830538639,
+          "irr": 8.580776953697205,
+          "wal": 1.674012803030303,
+          "riskTier": "MEDIUM"
+        },
+        {
+          "loanId": "HCZB8N2L8Z",
+          "loanName": "PIT 2024 8.25",
+          "school": "Pitt",
+          "ownershipPct": 0.5,
+          "principal": 12000,
+          "nominalRate": 8.25,
+          "termYears": 12,
+          "graceYears": 1.5,
+          "purchasePrice": 6000,
+          "currentBalance": 12274.16,
+          "npv": 5554.053825033869,
+          "irr": 7.874408023059369,
+          "wal": 7.959645549048332,
+          "riskTier": "MEDIUM"
+        }
+      ],
+      "askingPrice": 10357.27,
+      "askingPremiumPct": 4,
+      "suggestedPrice": 9958.91,
+      "totalPar": 10501.82,
+      "weightedRate": 8.5107,
+      "bundleWAL": 5.88,
+      "bundleNPV": 9958.91,
+      "riskMix": {
+        "MEDIUM": 3
+      },
+      "schoolCount": 3,
+      "notes": ""
+    }
+  ]
 }
