@@ -1,3 +1,77 @@
 {
-  "bundles": []
+  "bundles": [
+    {
+      "bundleId": "BDL-202603-001",
+      "bundleName": "CONS-7.86-2.9yr-202603",
+      "strategy": "conservative_income",
+      "status": "offered",
+      "createdBy": "jeff",
+      "createdAt": "2026-03-16T21:01:45.925Z",
+      "updatedAt": "2026-03-16T21:01:45.925Z",
+      "targetBuyer": "nick",
+      "loans": [
+        {
+          "loanId": "7EO4B3SHJY",
+          "loanName": "PSU 2024 8.83",
+          "school": "Penn State",
+          "ownershipPct": 0.8999999999999999,
+          "principal": 11000,
+          "nominalRate": 8.83,
+          "termYears": 10,
+          "graceYears": 0,
+          "purchasePrice": 9900,
+          "currentBalance": 3503.08,
+          "npv": 3240.017830538639,
+          "irr": 8.580776953697205,
+          "wal": 1.674012803030303,
+          "riskTier": "MEDIUM"
+        },
+        {
+          "loanId": "QVGKDMCI3U",
+          "loanName": "UCLA 2025 7.30",
+          "school": "UCLA",
+          "ownershipPct": 1,
+          "principal": 7500,
+          "nominalRate": 7.3,
+          "termYears": 5,
+          "graceYears": 0,
+          "purchasePrice": 7500,
+          "currentBalance": 5872.6,
+          "npv": 5641.896918633647,
+          "irr": 7.042801505327223,
+          "wal": 2.692909345614124,
+          "riskTier": "MEDIUM"
+        },
+        {
+          "loanId": "BZV8U2T3WU",
+          "loanName": "USC 2025 7.90",
+          "school": "USC",
+          "ownershipPct": 1,
+          "principal": 9000,
+          "nominalRate": 7.9,
+          "termYears": 7,
+          "graceYears": 0.5,
+          "purchasePrice": 9000,
+          "currentBalance": 7687.85,
+          "npv": 7756.188918634862,
+          "irr": 7.8149489879608165,
+          "wal": 3.6543017960276596,
+          "riskTier": "LOW"
+        }
+      ],
+      "askingPrice": 17137.25,
+      "askingPremiumPct": 3,
+      "suggestedPrice": 16638.1,
+      "totalPar": 16713.22,
+      "weightedRate": 7.8646,
+      "bundleWAL": 2.94,
+      "bundleNPV": 16638.1,
+      "riskMix": {
+        "MEDIUM": 2,
+        "LOW": 1
+      },
+      "schoolCount": 3,
+      "notes": ""
+    }
+  ]
 }
