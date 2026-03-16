@@ -88,6 +88,8 @@ export function BundlesContent() {
     selectedLoanIds,
     bundleName,
     setBundleName,
+    saleType,
+    setSaleType,
     targetBuyer,
     setTargetBuyer,
     customPremiumPct,
@@ -155,9 +157,9 @@ export function BundlesContent() {
               Package your loans into bundles and offer them to other investors.
             </p>
           </div>
-          <button type="button" style={S.btn('#2563eb')} onClick={() => openNewBundle(buyerOptions[0] ?? '')}>
-            + New Bundle
-          </button>
+          <button type="button" style={S.btn('#2563eb')} onClick={() => openNewBundle('any')}>
+  + New Bundle
+</button>
         </div>
 
         {loading && (
@@ -433,20 +435,85 @@ export function BundlesContent() {
                 </div>
 
                 <div style={{ marginBottom: 10 }}>
-                  <label style={{ fontSize: 12, fontWeight: 600, color: '#475569', display: 'block', marginBottom: 4 }}>
-                    Target Buyer
-                  </label>
-                  <select
-                    value={targetBuyer}
-                    onChange={e => setTargetBuyer(e.target.value)}
-                    style={{ width: '100%', padding: '7px 10px', border: '1px solid #e2e8f0', borderRadius: 8, fontSize: 12 }}
-                  >
-                    <option value="any">Any (Public Sale)</option>
-                    {buyerOptions.map(u => (
-                      <option key={u} value={u}>{u.charAt(0).toUpperCase() + u.slice(1)}</option>
-                    ))}
-                  </select>
-                </div>
+  <label style={{ fontSize: 12, fontWeight: 600, color: '#475569', display: 'block', marginBottom: 6 }}>
+    Sale Type
+  </label>
+
+  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8 }}>
+    <button
+      type="button"
+      onClick={() => {
+        setSaleType('public')
+        setTargetBuyer('any')
+      }}
+      style={{
+        padding: '10px 12px',
+        borderRadius: 10,
+        textAlign: 'left',
+        border: `2px solid ${saleType === 'public' ? '#0891b2' : '#e2e8f0'}`,
+        background: saleType === 'public' ? 'rgba(8,145,178,0.08)' : '#fff',
+        cursor: 'pointer',
+      }}
+    >
+      <div style={{ fontSize: 14 }}>🌐 Public Marketplace</div>
+      <div style={{ fontSize: 10, color: '#64748b', marginTop: 4 }}>
+        List for any investor to buy
+      </div>
+    </button>
+
+    <button
+      type="button"
+      onClick={() => {
+        setSaleType('private')
+        if (targetBuyer === 'any') setTargetBuyer(buyerOptions[0] ?? '')
+      }}
+      style={{
+        padding: '10px 12px',
+        borderRadius: 10,
+        textAlign: 'left',
+        border: `2px solid ${saleType === 'private' ? '#16a34a' : '#e2e8f0'}`,
+        background: saleType === 'private' ? 'rgba(22,163,74,0.08)' : '#fff',
+        cursor: 'pointer',
+      }}
+    >
+      <div style={{ fontSize: 14 }}>🤝 Private Offer</div>
+      <div style={{ fontSize: 10, color: '#64748b', marginTop: 4 }}>
+        Send directly to a specific buyer
+      </div>
+    </button>
+  </div>
+</div>
+
+{saleType === 'private' && (
+  <div style={{ marginBottom: 10 }}>
+    <label style={{ fontSize: 12, fontWeight: 600, color: '#475569', display: 'block', marginBottom: 4 }}>
+      Target Buyer
+    </label>
+    <select
+      value={targetBuyer === 'any' ? (buyerOptions[0] ?? '') : targetBuyer}
+      onChange={e => setTargetBuyer(e.target.value)}
+      style={{ width: '100%', padding: '7px 10px', border: '1px solid #e2e8f0', borderRadius: 8, fontSize: 12 }}
+    >
+      {buyerOptions.map(u => (
+        <option key={u} value={u}>{u.charAt(0).toUpperCase() + u.slice(1)}</option>
+      ))}
+    </select>
+  </div>
+)}
+
+{saleType === 'public' && (
+  <div style={{
+    marginBottom: 10,
+    padding: '10px 12px',
+    borderRadius: 8,
+    border: '1px solid #e2e8f0',
+    background: '#f8fafc',
+    fontSize: 12,
+    color: '#475569',
+  }}>
+    This bundle will be listed publicly for any investor.
+  </div>
+)}
 
                 <div>
                   <label style={{ fontSize: 12, fontWeight: 600, color: '#475569', display: 'block', marginBottom: 4 }}>

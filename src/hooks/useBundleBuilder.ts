@@ -26,7 +26,8 @@ export function useBundleBuilder(userId: string) {
   const [selectedStrategy, setSelectedStrategy] = useState<BundleStrategy>('conservative_income')
   const [selectedLoanIds, setSelectedLoanIds] = useState<Set<string>>(new Set())
   const [bundleName, setBundleName] = useState('')
-  const [targetBuyer, setTargetBuyer] = useState('')
+  const [saleType, setSaleType] = useState<'public' | 'private'>('public')
+  const [targetBuyer, setTargetBuyer] = useState('any')
   const [customPremiumPct, setCustomPremiumPct] = useState<number>(0)
   const [useCustomPrice, setUseCustomPrice] = useState(false)
   const [notes, setNotes] = useState('')
@@ -74,11 +75,12 @@ const askingPrice = stats.suggestedPrice * (1 + effectivePremiumPct / 100)
     [bundles, userId]
   )
 
-  function openNewBundle(defaultBuyer = '') {
+  function openNewBundle(defaultBuyer = 'any') {
     setEditingBundle(null)
     setSelectedStrategy('conservative_income')
     setSelectedLoanIds(new Set())
     setBundleName('')
+    setSaleType(defaultBuyer === 'any' ? 'public' : 'private')
     setTargetBuyer(defaultBuyer)
     setCustomPremiumPct(0)
     setUseCustomPrice(false)
@@ -91,6 +93,7 @@ const askingPrice = stats.suggestedPrice * (1 + effectivePremiumPct / 100)
     setSelectedStrategy(bundle.strategy)
     setSelectedLoanIds(new Set(bundle.loans.map(l => l.loanId)))
     setBundleName(bundle.bundleName)
+    setSaleType(bundle.targetBuyer === 'any' ? 'public' : 'private')
     setTargetBuyer(bundle.targetBuyer)
     setCustomPremiumPct(bundle.askingPremiumPct)
     setUseCustomPrice(true)
@@ -151,7 +154,7 @@ const askingPrice = stats.suggestedPrice * (1 + effectivePremiumPct / 100)
       createdBy: userId,
       createdAt: editingBundle?.createdAt ?? now,
       updatedAt: now,
-      targetBuyer,
+      targetBuyer: saleType === 'public' ? 'any' : targetBuyer,
       loans: selectedLoans.map(bundleLoan),
       askingPrice: +askingPrice.toFixed(2),
       askingPremiumPct: +effectivePremiumPct.toFixed(2),
@@ -193,6 +196,8 @@ const askingPrice = stats.suggestedPrice * (1 + effectivePremiumPct / 100)
     selectedLoanIds,
     bundleName,
     setBundleName,
+    saleType,
+setSaleType,
     targetBuyer,
     setTargetBuyer,
     customPremiumPct,
