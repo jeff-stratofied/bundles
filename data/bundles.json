@@ -4,10 +4,10 @@
       "bundleId": "BDL-202603-001",
       "bundleName": "CONS-3.77-4.9yr-202603",
       "strategy": "conservative_income",
-      "status": "offered",
+      "status": "sold",
       "createdBy": "market",
       "createdAt": "2026-03-16T12:39:45.182Z",
-      "updatedAt": "2026-03-16T12:39:45.183Z",
+      "updatedAt": "2026-03-16T12:40:20.575Z",
       "targetBuyer": "jeff",
       "loans": [
         {
@@ -215,7 +215,7 @@
         "LOW": 10
       },
       "schoolCount": 9,
-      "notes": ""
+      "notes": "Private Sale"
     },
     {
       "bundleId": "BDL-202603-002",
