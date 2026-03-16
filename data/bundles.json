@@ -7,7 +7,7 @@
       "status": "offered",
       "createdBy": "market",
       "createdAt": "2026-03-16T12:19:09.707Z",
-      "updatedAt": "2026-03-16T12:19:09.707Z",
+      "updatedAt": "2026-03-16T12:20:39.118Z",
       "targetBuyer": "jeff",
       "loans": [
         {
@@ -795,8 +795,8 @@
           "riskTier": "MEDIUM"
         }
       ],
-      "askingPrice": 876508.09,
-      "askingPremiumPct": 0,
+      "askingPrice": 920333.49,
+      "askingPremiumPct": 5,
       "suggestedPrice": 702660.35,
       "totalPar": 876508.09,
       "weightedRate": 5.7468,
