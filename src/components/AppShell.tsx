@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useUser } from '../context/UserContext'
 import type { UserId } from '../context/UserContext'
 
@@ -7,6 +8,7 @@ const NAV_ITEMS = [
   { icon: 'fa-chart-bar',    label: 'Reporting',   active: true  },
   { icon: 'fa-shopping-cart',label: 'Marketplace', active: false },
   { icon: 'fa-wallet',       label: 'Wallet',      active: false },
+  { icon: 'fa-layer-group',  label: 'Bundles',     active: false, route: '/bundles' },
   { icon: 'fa-history',      label: 'History',     active: false },
 ]
 
@@ -20,6 +22,7 @@ const USER_OPTIONS: { value: UserId; label: string }[] = [
 
 export default function AppShell({ children }: { children: React.ReactNode }) {
   const [expanded, setExpanded] = useState(false)
+  const navigate = useNavigate()
   const { userId, setUserId } = useUser()
 
   const displayName = USER_OPTIONS.find(u => u.value === userId)?.label ?? userId
@@ -74,6 +77,14 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
                 style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
                 {inner}
               </a>
+            )
+          }
+          if ((item as any).route) {
+            return (
+              <div key={item.label} onClick={() => { navigate((item as any).route); setExpanded(false) }}
+                style={{ display: 'block' }}>
+                {inner}
+              </div>
             )
           }
           return inner

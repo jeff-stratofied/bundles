@@ -5,6 +5,8 @@ import EarningsDetailPage from './pages/EarningsDetailPage'
 import ReportingPage from './pages/ReportingPage'
 import RoiDetailPage from './pages/RoiDetailPage'
 import LoanValuationPage from './pages/LoanValuationPage'
+import BundlesPage from './pages/BundlesPage'
+
 
 function App() {
   return (
@@ -17,6 +19,7 @@ function App() {
           <Route path="/amort" element={<AmortDetailPage />} />
           <Route path="/valuations" element={<LoanValuationPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
+          <Route path="/bundles" element={<BundlesPage />} />
         </Routes>
       </BrowserRouter>
     </UserProvider>

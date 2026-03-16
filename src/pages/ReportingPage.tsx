@@ -1,4 +1,5 @@
 import { useEffect, useState, useMemo, useRef } from 'react'
+import { BundlesContent } from './BundlesPage'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { usePortfolio } from '../hooks/usePortfolio'
 import type { RoiKpis, EarningsKpis, AmortKpis } from '../hooks/usePortfolio'
@@ -1336,7 +1337,7 @@ const rowTs = new Date(
 
 // ─── Main Page ────────────────────────────────────────────────
 
-type ActiveTab = 'marketplace' | 'holdings' | 'valuations'
+type ActiveTab = 'marketplace' | 'holdings' | 'valuations' | 'bundles'
 
 export default function ReportingPage() {
   const navigate = useNavigate()
@@ -1395,7 +1396,7 @@ export default function ReportingPage() {
         {/* Tabs */}
         <div style={{ borderBottom: '1px solid #e2e8f0', marginBottom: 16 }}>
           <div style={{ display: 'flex', gap: 28, paddingLeft: 4 }}>
-            {(['marketplace', 'holdings', 'valuations'] as ActiveTab[]).map(tab => (
+            {(['marketplace', 'holdings', 'valuations', 'bundles'] as ActiveTab[]).map(tab => (
               <button
                 key={tab}
                 onClick={() => {
@@ -1423,7 +1424,9 @@ export default function ReportingPage() {
                   ? 'Marketplace'
                   : tab === 'holdings'
                     ? 'My Holdings'
-                    : 'Loan Valuations'}
+                    : tab === 'bundles'
+                      ? 'Bundles'
+                      : 'Loan Valuations'}
               </button>
             ))}
           </div>
@@ -1445,6 +1448,10 @@ export default function ReportingPage() {
             <EarningsColumn earningsKpis={earningsKpis} loansWithRoi={loansWithRoi} />
             <AmortColumn amortKpis={amortKpis} loansWithRoi={loansWithRoi} />
           </div>
+        )}
+
+        {activeTab === 'bundles' && (
+          <BundlesContent />
         )}
       </div>
     </AppShell>

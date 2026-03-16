@@ -1,9 +1,19 @@
 import { useState, useEffect } from 'react'
-import { buildAmortSchedule, setGlobalFeeConfig } from '../utils/loanEngine'
-import { loadUsers } from '../utils/users'
+import { buildAmortSchedule, getCurrentLoanBalance } from '../utils/loanEngine'
+import {
+  deriveRiskTier,
+  valueLoan,
+  SYSTEM_PROFILE,
+  loadConfig,
+  loadSchoolTiers,
+  loadValuationCurves,
+} from '../utils/valuationEngine'
+
+import schoolTiersJson from '../data/schoolTiers.json'
+import valuationCurvesJson from '../data/valuationCurves.json'
 
 const LOANS_URL = 'https://raw.githubusercontent.com/jeff-stratofied/loan-valuation/main/data/loans.json'
-const PLATFORM_CONFIG_URL = 'https://loan-valuation-api.jeff-263.workers.dev/platformConfig'
+const BORROWERS_URL = 'https://raw.githubusercontent.com/jeff-stratofied/loan-valuation/main/data/borrowers.json'
 
 const LOAN_COLORS = [
   '#6366f1', '#f59e0b', '#10b981', '#ef4444', '#0ea5e9',
@@ -11,6 +21,84 @@ const LOAN_COLORS = [
   '#84cc16', '#a855f7', '#f43f5e', '#22d3ee', '#fb923c',
   '#4ade80', '#818cf8', '#fbbf24', '#34d399', '#fb7185',
 ]
+
+function jsonToBlobUrl(data: unknown): string {
+  const blob = new Blob([JSON.stringify(data)], { type: 'application/json' })
+  return URL.createObjectURL(blob)
+}
+
+function enrichLoan(l: Loan): Loan {
+  const sched = l.amort?.schedule ?? []
+  const ownershipPct = Number(l.ownershipPct ?? 1)
+
+  let walNum = 0
+  let walDen = 0
+
+  sched.forEach((row, i) => {
+    const p = Number(row.scheduledPrincipal ?? 0) + Number(row.prepaymentPrincipal ?? 0)
+    if (p > 0) {
+      walNum += (i + 1) * p
+      walDen += p
+    }
+  })
+
+  const wal = walDen > 0 ? walNum / walDen / 12 : 0
+
+  let npv = Number(l.balance ?? 0) * ownershipPct
+  let irr = 0
+
+  const borrower = l.borrower ?? {}
+  let riskTier = 'UNKNOWN'
+
+  try {
+    riskTier =
+      deriveRiskTier({
+        borrowerFico: borrower.borrowerFico ?? borrower.fico ?? null,
+        cosignerFico: borrower.cosignerFico ?? null,
+        yearInSchool: borrower.yearInSchool ?? null,
+        isGraduateStudent: borrower.isGraduateStudent ?? false,
+        school: borrower.school ?? l.school ?? '',
+        opeid: borrower.opeid ?? null,
+      }) ?? 'UNKNOWN'
+
+    const valuation = valueLoan({
+      loan: {
+        ...l,
+        principal: Number(l.principal ?? 0),
+        nominalRate: Number(l.nominalRate ?? 0) / 100,
+        termYears: Number(l.termYears ?? 0),
+        graceYears: Number(l.graceYears ?? 0),
+        loanStartDate: l.loanStartDate,
+        purchaseDate: l.purchaseDate,
+        loanId: l.loanId,
+      },
+      borrower: {
+        borrowerFico: borrower.borrowerFico ?? borrower.fico ?? null,
+        cosignerFico: borrower.cosignerFico ?? null,
+        yearInSchool: borrower.yearInSchool ?? null,
+        isGraduateStudent: borrower.isGraduateStudent ?? false,
+        school: borrower.school ?? l.school ?? '',
+        opeid: borrower.opeid ?? null,
+      },
+      riskFreeRate: (SYSTEM_PROFILE.assumptions.baseRiskFreeRate ?? 4.25) / 100,
+      profile: SYSTEM_PROFILE,
+    })
+
+    npv = Number(valuation?.npv ?? 0) * ownershipPct
+    irr = Number(valuation?.irr ?? 0)
+  } catch (err) {
+    console.warn('Loan valuation failed:', l.loanId, err)
+  }
+
+  return {
+    ...l,
+    wal,
+    npv,
+    irr,
+    riskTier,
+  }
+}
+
 
 export interface OwnershipLot {
   user: string
@@ -47,6 +135,11 @@ export interface Loan {
   visible: boolean
   isMarketLoan: boolean
   amort: { schedule: any[] }
+  borrower?: any
+  wal?: number
+  npv?: number
+  irr?: number
+  riskTier?: string
 }
 
 function toFraction(pct: number): number {
@@ -97,8 +190,7 @@ function normalizeLoan(raw: any, index: number, userId: string): Loan | null {
   }
 
   const schedule = buildAmortSchedule(loanCore)
-  const lastRow = schedule[schedule.length - 1]
-  const balance = lastRow?.balance ?? 0
+  const balance = getCurrentLoanBalance({ amort: { schedule } }, new Date())
 
   return {
     loanId,
@@ -129,47 +221,78 @@ export function useLoans(userId: string) {
 
   useEffect(() => {
     if (!userId) return
-    setLoading(true)
-    setError(null)
-
-    // Fetch loans and platformConfig in parallel
-    Promise.all([
-      fetch(LOANS_URL).then(res => {
-        if (!res.ok) throw new Error(`Fetch error: ${res.status}`)
-        return res.json()
-      }),
-      fetch(PLATFORM_CONFIG_URL, { cache: 'no-store' }).then(res => {
-        if (!res.ok) throw new Error(`platformConfig fetch failed: ${res.status}`)
-        return res.json()
-      }).catch(err => {
-        console.warn('platformConfig fetch failed, using defaults:', err)
-        return { fees: { setupFee: 150, monthlyServicingBps: 25 }, users: [] }
-      }),
-    ])
-      .then(([loansData, platformData]) => {
-        // Set global fee config so earningsEngine can compute fees
-        if (platformData?.fees) {
-          setGlobalFeeConfig({
-            setupFee: Number(platformData.fees.setupFee ?? 150),
-            monthlyServicingBps: Number(platformData.fees.monthlyServicingBps ?? 25),
-          })
-        }
-
-        // Load users so feePolicy can resolve fee waivers by userId
-        loadUsers()
-
+  
+    async function loadAll() {
+      setLoading(true)
+      setError(null)
+  
+      try {
+        const schoolTiersUrl = jsonToBlobUrl(schoolTiersJson)
+        const valuationCurvesUrl = jsonToBlobUrl(valuationCurvesJson)
+  
+        await Promise.all([
+          loadSchoolTiers(schoolTiersUrl),
+          loadValuationCurves(valuationCurvesUrl),
+        ])
+  
+        URL.revokeObjectURL(schoolTiersUrl)
+        URL.revokeObjectURL(valuationCurvesUrl)
+  
+        await loadConfig()
+  
+        const [loansData, borrowersRaw] = await Promise.all([
+          fetch(LOANS_URL).then(res => {
+            if (!res.ok) throw new Error(`Fetch error: ${res.status}`)
+            return res.json()
+          }),
+          fetch(BORROWERS_URL)
+            .then(res => {
+              if (!res.ok) return []
+              return res.json()
+            })
+            .catch(() => []),
+        ])
+  
+        const borrowerArr = Array.isArray(borrowersRaw)
+          ? borrowersRaw
+          : Array.isArray((borrowersRaw as any)?.borrowers)
+            ? (borrowersRaw as any).borrowers
+            : []
+  
+        const borrowerMap: Record<string, any> = {}
+        borrowerArr.forEach((b: any) => {
+          if (b?.borrowerId) borrowerMap[b.borrowerId] = b
+        })
+  
         const raw: any[] = Array.isArray(loansData)
           ? loansData
-          : Array.isArray(loansData.loans)
-          ? loansData.loans
-          : []
+          : Array.isArray((loansData as any).loans)
+            ? (loansData as any).loans
+            : []
+  
         const normalized = raw
-          .map((l, i) => normalizeLoan(l, i, userId))
-          .filter((l): l is Loan => l !== null && l.visible)
-        setLoans(normalized)
-      })
-      .catch(err => setError(err.message))
-      .finally(() => setLoading(false))
+          .map((l, i) => {
+            const loan = normalizeLoan(l, i, userId)
+            if (!loan) return null
+  
+            const borrower =
+              borrowerMap[l.borrowerId] ??
+              borrowerMap[`BRW-${loan.loanId}`] ??
+              null
+  
+            return borrower ? { ...loan, borrower } : loan
+          })
+          .filter((l): l is Loan => l !== null && (l as any).visible)
+  
+        setLoans(normalized.map(enrichLoan))
+      } catch (err: any) {
+        setError(err.message)
+      } finally {
+        setLoading(false)
+      }
+    }
+  
+    loadAll()
   }, [userId])
 
   return { loans, loading, error }
