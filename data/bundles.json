@@ -221,10 +221,10 @@
       "bundleId": "BDL-202603-002",
       "bundleName": "SEASN-6.34-8.0yr-202603",
       "strategy": "seasoned",
-      "status": "offered",
+      "status": "sold",
       "createdBy": "market",
       "createdAt": "2026-03-16T12:40:01.943Z",
-      "updatedAt": "2026-03-16T12:40:01.943Z",
+      "updatedAt": "2026-03-16T12:40:11.780Z",
       "targetBuyer": "any",
       "loans": [
         {
@@ -832,7 +832,7 @@
         "MEDIUM": 11
       },
       "schoolCount": 20,
-      "notes": ""
+      "notes": "Private Sale"
     }
   ]
 }
