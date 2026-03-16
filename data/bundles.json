@@ -949,11 +949,11 @@
       "bundleId": "BDL-202603-003",
       "bundleName": "DIV-6.64-7.6yr-202603",
       "strategy": "diversified",
-      "status": "offered",
+      "status": "draft",
       "createdBy": "market",
       "createdAt": "2026-03-16T12:20:04.825Z",
-      "updatedAt": "2026-03-16T12:20:04.825Z",
-      "targetBuyer": "jeff",
+      "updatedAt": "2026-03-16T12:24:55.345Z",
+      "targetBuyer": "",
       "loans": [
         {
           "loanId": "XW40BF8G86",
