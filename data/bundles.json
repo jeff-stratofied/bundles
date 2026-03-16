@@ -1180,62 +1180,6 @@
       "notes": ""
     },
     {
-      "bundleId": "BDL-202603-004",
-      "bundleName": "CONS-8.24-2.3yr-202603",
-      "strategy": "conservative_income",
-      "status": "offered",
-      "createdBy": "jeff",
-      "createdAt": "2026-03-16T12:21:52.967Z",
-      "updatedAt": "2026-03-16T12:21:52.967Z",
-      "targetBuyer": "nick",
-      "loans": [
-        {
-          "loanId": "DYRYYM33PL",
-          "loanName": "AMU 2024 8.50",
-          "school": "Ave Maria University",
-          "ownershipPct": 1,
-          "principal": 12000,
-          "nominalRate": 8.5,
-          "termYears": 8,
-          "graceYears": 0.5,
-          "purchasePrice": 12000,
-          "currentBalance": 10886.36,
-          "npv": 10886.36,
-          "irr": 0,
-          "wal": 1.21,
-          "riskTier": "MEDIUM"
-        },
-        {
-          "loanId": "BZV8U2T3WU",
-          "loanName": "USC 2025 7.90",
-          "school": "USC",
-          "ownershipPct": 1,
-          "principal": 9000,
-          "nominalRate": 7.9,
-          "termYears": 7,
-          "graceYears": 0.5,
-          "purchasePrice": 9000,
-          "currentBalance": 0,
-          "npv": 7687.85,
-          "irr": 0,
-          "wal": 3.65,
-          "riskTier": "MEDIUM"
-        }
-      ],
-      "askingPrice": 18574.5,
-      "askingPremiumPct": -11.55,
-      "suggestedPrice": 18574.21,
-      "totalPar": 21000,
-      "weightedRate": 8.2429,
-      "bundleWAL": 2.26,
-      "bundleNPV": 18574.21,
-      "riskMix": {
-        "MEDIUM": 2
-      },
-      "schoolCount": 2,
-      "notes": ""
-    },
-    {
       "bundleId": "BDL-202603-006",
       "bundleName": "GRWTH-9.61-6.2yr-202603",
       "strategy": "growth_yield",
