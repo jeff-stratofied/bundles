@@ -24,7 +24,7 @@ const statements: StatementItem[] = [
     account: '709002',
     program: 'Education Freedom',
     fileName: 'ACT1001_709002_202602.PDF',
-    pdfUrl: './public/statements/ACT1001_709002_202602.PDF',
+    pdfUrl: `${import.meta.env.BASE_URL}statements/ACT1001_709002_202602.PDF`
   },
   {
     id: '2026-01',
@@ -35,7 +35,7 @@ const statements: StatementItem[] = [
     account: '709002',
     program: 'Education Freedom',
     fileName: 'ACT1001_709002_202601.PDF',
-    pdfUrl: './public/statements/ACT1001_709002_202601.PDF',
+    pdfUrl: `${import.meta.env.BASE_URL}statements/ACT1001_709002_202601.PDF`
   },
 ]
 
