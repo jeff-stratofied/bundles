@@ -6,6 +6,8 @@ import LoanDrawer from '../components/LoanDrawer'
 import { useUser } from '../context/UserContext'
 import { useNavigate } from 'react-router-dom'
 
+import ReportingTabs from '../components/ReportingTabs'
+
 // ── Engine imports (single source of truth for all math) ──
 import {
   SYSTEM_PROFILE,
@@ -524,46 +526,7 @@ export default function LoanValuationPage() {
       <div style={{ padding: '0 0 32px', background: '#f4f7f8', minHeight: '100%' }}>
 
 {/* Nav tabs */}
-<div style={{ borderBottom: '1px solid #e2e8f0', marginBottom: 16 }}>
-  <div style={{ display: 'flex', gap: 28, paddingLeft: 4 }}>
-    <button
-      type="button"
-      style={topTabBaseStyle}
-      onClick={() => navigate('/?tab=marketplace')}
-    >
-      Marketplace
-    </button>
-
-    <button
-      type="button"
-      style={topTabBaseStyle}
-      onClick={() => navigate('/')}
-    >
-      My Holdings
-    </button>
-
-    <button
-      type="button"
-      style={{
-        ...topTabBaseStyle,
-        color: '#0f172a',
-        borderBottom: '2px solid #0ea5e9',
-        marginBottom: -1,
-      }}
-      onClick={() => navigate('/valuations')}
-    >
-      Loan Valuations
-    </button>
-
-    <button
-      type="button"
-      style={topTabBaseStyle}
-      onClick={() => navigate('/?tab=bundles')}
-    >
-      Bundles
-    </button>
-  </div>
-</div>
+<ReportingTabs activeTab="valuations" />
 
           {/* KPI tiles */}
           <div style={{ fontSize: 13, color: '#64748b', fontStyle: 'italic', marginBottom: 8 }}>

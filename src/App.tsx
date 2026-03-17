@@ -6,6 +6,7 @@ import ReportingPage from './pages/ReportingPage'
 import RoiDetailPage from './pages/RoiDetailPage'
 import LoanValuationPage from './pages/LoanValuationPage'
 import BundlesPage from './pages/BundlesPage'
+import StatementsPage from './pages/StatementsPage'
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Route path="/valuations" element={<LoanValuationPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
           <Route path="/bundles" element={<BundlesPage />} />
+          <Route path="/statements" element={<StatementsPage />} />
         </Routes>
       </BrowserRouter>
     </UserProvider>

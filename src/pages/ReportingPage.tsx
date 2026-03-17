@@ -7,6 +7,7 @@ import RoiChart from '../components/RoiChart'
 import type { LoanSeries } from '../components/RoiChart'
 import { useUser } from '../context/UserContext'
 import AppShell from '../components/AppShell'
+import ReportingTabs, { type ReportingTab } from '../components/ReportingTabs'
 
 function formatPct(val: number): string {
   return val.toFixed(2) + '%'
@@ -1393,44 +1394,7 @@ export default function ReportingPage() {
   return (
     <AppShell>
       <div style={{ padding: '0 0 32px' }}>
-        {/* Tabs */}
-        <div style={{ borderBottom: '1px solid #e2e8f0', marginBottom: 16 }}>
-          <div style={{ display: 'flex', gap: 28, paddingLeft: 4 }}>
-            {(['marketplace', 'holdings', 'valuations', 'bundles'] as ActiveTab[]).map(tab => (
-              <button
-                key={tab}
-                onClick={() => {
-                  if (tab === 'valuations') {
-                    navigate('/valuations')
-                    return
-                  }
-
-                  setActiveTab(tab)
-                  navigate(`/?tab=${tab}`)
-                }}
-                style={{
-                  background: 'none',
-                  border: 'none',
-                  padding: '14px 0',
-                  fontSize: 15,
-                  fontWeight: 600,
-                  cursor: 'pointer',
-                  color: activeTab === tab ? '#0f172a' : '#64748b',
-                  borderBottom: activeTab === tab ? '2px solid #0ea5e9' : '2px solid transparent',
-                  marginBottom: -1,
-                }}
-              >
-                {tab === 'marketplace'
-                  ? 'Marketplace'
-                  : tab === 'holdings'
-                    ? 'My Holdings'
-                    : tab === 'bundles'
-                      ? 'Bundles'
-                      : 'Loan Valuations'}
-              </button>
-            ))}
-          </div>
-        </div>
+      <ReportingTabs activeTab={activeTab as ReportingTab} />
 
         {activeTab === 'marketplace' && (
           <div style={{ textAlign: 'center', padding: '40px 20px' }}>
