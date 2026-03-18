@@ -14,6 +14,9 @@ import valuationCurvesJson from '../data/valuationCurves.json'
 
 const LOANS_URL = 'https://raw.githubusercontent.com/jeff-stratofied/loan-valuation/main/data/loans.json'
 const BORROWERS_URL = 'https://raw.githubusercontent.com/jeff-stratofied/loan-valuation/main/data/borrowers.json'
+function getUserRiskStorageKey(userId: string) {
+  return `userRiskAssumptions:${String(userId || 'anonymous').toLowerCase()}`
+}
 
 const LOAN_COLORS = [
   '#6366f1', '#f59e0b', '#10b981', '#ef4444', '#0ea5e9',
@@ -27,78 +30,12 @@ function jsonToBlobUrl(data: unknown): string {
   return URL.createObjectURL(blob)
 }
 
-function enrichLoan(l: Loan): Loan {
-  const sched = l.amort?.schedule ?? []
-  const ownershipPct = Number(l.ownershipPct ?? 1)
-
-  let walNum = 0
-  let walDen = 0
-
-  sched.forEach((row, i) => {
-    const p = Number(row.scheduledPrincipal ?? 0) + Number(row.prepaymentPrincipal ?? 0)
-    if (p > 0) {
-      walNum += (i + 1) * p
-      walDen += p
-    }
-  })
-
-  const wal = walDen > 0 ? walNum / walDen / 12 : 0
-
-  let npv = Number(l.balance ?? 0) * ownershipPct
-  let irr = 0
-
-  const borrower = l.borrower ?? {}
-  let riskTier = 'UNKNOWN'
-
-  try {
-    riskTier =
-      deriveRiskTier({
-        borrowerFico: borrower.borrowerFico ?? borrower.fico ?? null,
-        cosignerFico: borrower.cosignerFico ?? null,
-        yearInSchool: borrower.yearInSchool ?? null,
-        isGraduateStudent: borrower.isGraduateStudent ?? false,
-        school: borrower.school ?? l.school ?? '',
-        opeid: borrower.opeid ?? null,
-      }) ?? 'UNKNOWN'
-
-    const valuation = valueLoan({
-      loan: {
-        ...l,
-        principal: Number(l.principal ?? 0),
-        nominalRate: Number(l.nominalRate ?? 0) / 100,
-        termYears: Number(l.termYears ?? 0),
-        graceYears: Number(l.graceYears ?? 0),
-        loanStartDate: l.loanStartDate,
-        purchaseDate: l.purchaseDate,
-        loanId: l.loanId,
-      },
-      borrower: {
-        borrowerFico: borrower.borrowerFico ?? borrower.fico ?? null,
-        cosignerFico: borrower.cosignerFico ?? null,
-        yearInSchool: borrower.yearInSchool ?? null,
-        isGraduateStudent: borrower.isGraduateStudent ?? false,
-        school: borrower.school ?? l.school ?? '',
-        opeid: borrower.opeid ?? null,
-      },
-      riskFreeRate: (SYSTEM_PROFILE.assumptions.baseRiskFreeRate ?? 4.25) / 100,
-      profile: SYSTEM_PROFILE,
-    })
-
-    npv = Number(valuation?.npv ?? 0) * ownershipPct
-    irr = Number(valuation?.irr ?? 0)
-  } catch (err) {
-    console.warn('Loan valuation failed:', l.loanId, err)
-  }
-
-  return {
-    ...l,
-    wal,
-    npv,
-    irr,
-    riskTier,
-  }
+export interface LoanPricingProfile {
+  npv: number
+  irr: number
+  riskTier: string
+  wal: number
 }
-
 
 export interface OwnershipLot {
   user: string
@@ -136,10 +73,153 @@ export interface Loan {
   isMarketLoan: boolean
   amort: { schedule: any[] }
   borrower?: any
+
   wal?: number
   npv?: number
   irr?: number
   riskTier?: string
+
+  pricing?: {
+    system: LoanPricingProfile
+    user: LoanPricingProfile
+  }
+
+  hasUserOverrides?: boolean
+  valuationDeltaPct?: number
+}
+
+function getUserAssumptions(userId: string): any | null {
+  try {
+    const raw = localStorage.getItem(getUserRiskStorageKey(userId))
+    if (!raw) return null
+    return JSON.parse(raw)
+  } catch {
+    return null
+  }
+}
+
+function buildLoanValuationInput(l: Loan) {
+  return {
+    ...l,
+    principal: Number(l.principal ?? 0),
+    nominalRate: Number(l.nominalRate ?? 0) / 100,
+    termYears: Number(l.termYears ?? 0),
+    graceYears: Number(l.graceYears ?? 0),
+    loanStartDate: l.loanStartDate,
+    purchaseDate: l.purchaseDate,
+    loanId: l.loanId,
+  }
+}
+
+function buildBorrowerInput(l: Loan) {
+  const borrower = l.borrower ?? {}
+  return {
+    borrowerFico: borrower.borrowerFico ?? borrower.fico ?? null,
+    cosignerFico: borrower.cosignerFico ?? null,
+    yearInSchool: borrower.yearInSchool ?? null,
+    isGraduateStudent: borrower.isGraduateStudent ?? false,
+    school: borrower.school ?? l.school ?? '',
+    opeid: borrower.opeid ?? null,
+    degreeType: borrower.degreeType ?? null,
+  }
+}
+
+function enrichLoan(l: Loan, userId: string): Loan {
+  const sched = l.amort?.schedule ?? []
+  const ownershipPct = Number(l.ownershipPct ?? 1)
+
+  let walNum = 0
+  let walDen = 0
+
+  sched.forEach((row, i) => {
+    const p = Number(row.scheduledPrincipal ?? 0) + Number(row.prepaymentPrincipal ?? 0)
+    if (p > 0) {
+      walNum += (i + 1) * p
+      walDen += p
+    }
+  })
+
+  const wal = walDen > 0 ? walNum / walDen / 12 : 0
+
+  const borrowerInput = buildBorrowerInput(l)
+  const loanInput = buildLoanValuationInput(l)
+  const userAssumptions = getUserAssumptions(userId)
+
+  const hasUserOverrides = !!userAssumptions
+  const userProfile = hasUserOverrides
+    ? {
+        ...SYSTEM_PROFILE,
+        assumptions: {
+          ...SYSTEM_PROFILE.assumptions,
+          ...userAssumptions,
+        },
+      }
+    : SYSTEM_PROFILE
+
+  let systemRiskTier = 'UNKNOWN'
+  let userRiskTier = 'UNKNOWN'
+  let systemNpv = Number(l.balance ?? 0) * ownershipPct
+  let userNpv = systemNpv
+  let systemIrr = 0
+  let userIrr = 0
+
+  try {
+    systemRiskTier = deriveRiskTier(borrowerInput, SYSTEM_PROFILE.assumptions) ?? 'UNKNOWN'
+    userRiskTier = deriveRiskTier(borrowerInput, userProfile.assumptions) ?? systemRiskTier
+
+    const systemValuation = valueLoan({
+      loan: loanInput,
+      borrower: borrowerInput,
+      riskFreeRate: (SYSTEM_PROFILE.assumptions.baseRiskFreeRate ?? 4.25) / 100,
+      profile: SYSTEM_PROFILE,
+    })
+
+    systemNpv = Number(systemValuation?.npv ?? 0) * ownershipPct
+    systemIrr = Number(systemValuation?.irr ?? 0)
+
+    const userValuation = valueLoan({
+      loan: loanInput,
+      borrower: borrowerInput,
+      riskFreeRate: (userProfile.assumptions.baseRiskFreeRate ?? 4.25) / 100,
+      profile: userProfile,
+    })
+
+    userNpv = Number(userValuation?.npv ?? 0) * ownershipPct
+    userIrr = Number(userValuation?.irr ?? 0)
+  } catch (err) {
+    console.warn('Loan valuation failed:', l.loanId, err)
+  }
+
+  const systemProfile: LoanPricingProfile = {
+    npv: systemNpv,
+    irr: systemIrr,
+    riskTier: systemRiskTier,
+    wal,
+  }
+
+  const userProfileValues: LoanPricingProfile = {
+    npv: userNpv,
+    irr: userIrr,
+    riskTier: userRiskTier,
+    wal,
+  }
+
+  const valuationDeltaPct =
+    systemNpv !== 0 ? ((userNpv - systemNpv) / systemNpv) * 100 : 0
+
+  return {
+    ...l,
+    wal,
+    npv: systemNpv,
+    irr: systemIrr,
+    riskTier: systemRiskTier,
+    pricing: {
+      system: systemProfile,
+      user: userProfileValues,
+    },
+    hasUserOverrides,
+    valuationDeltaPct,
+  }
 }
 
 function toFraction(pct: number): number {
@@ -221,25 +301,25 @@ export function useLoans(userId: string) {
 
   useEffect(() => {
     if (!userId) return
-  
+
     async function loadAll() {
       setLoading(true)
       setError(null)
-  
+
       try {
         const schoolTiersUrl = jsonToBlobUrl(schoolTiersJson)
         const valuationCurvesUrl = jsonToBlobUrl(valuationCurvesJson)
-  
+
         await Promise.all([
           loadSchoolTiers(schoolTiersUrl),
           loadValuationCurves(valuationCurvesUrl),
         ])
-  
+
         URL.revokeObjectURL(schoolTiersUrl)
         URL.revokeObjectURL(valuationCurvesUrl)
-  
+
         await loadConfig()
-  
+
         const [loansData, borrowersRaw] = await Promise.all([
           fetch(LOANS_URL).then(res => {
             if (!res.ok) throw new Error(`Fetch error: ${res.status}`)
@@ -252,46 +332,46 @@ export function useLoans(userId: string) {
             })
             .catch(() => []),
         ])
-  
+
         const borrowerArr = Array.isArray(borrowersRaw)
           ? borrowersRaw
           : Array.isArray((borrowersRaw as any)?.borrowers)
             ? (borrowersRaw as any).borrowers
             : []
-  
+
         const borrowerMap: Record<string, any> = {}
         borrowerArr.forEach((b: any) => {
           if (b?.borrowerId) borrowerMap[b.borrowerId] = b
         })
-  
+
         const raw: any[] = Array.isArray(loansData)
           ? loansData
           : Array.isArray((loansData as any).loans)
             ? (loansData as any).loans
             : []
-  
+
         const normalized = raw
           .map((l, i) => {
             const loan = normalizeLoan(l, i, userId)
             if (!loan) return null
-  
+
             const borrower =
               borrowerMap[l.borrowerId] ??
               borrowerMap[`BRW-${loan.loanId}`] ??
               null
-  
+
             return borrower ? { ...loan, borrower } : loan
           })
           .filter((l): l is Loan => l !== null && (l as any).visible)
-  
-        setLoans(normalized.map(enrichLoan))
+
+          setLoans(normalized.map(loan => enrichLoan(loan, userId)))
       } catch (err: any) {
         setError(err.message)
       } finally {
         setLoading(false)
       }
     }
-  
+
     loadAll()
   }, [userId])
 

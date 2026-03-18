@@ -58,25 +58,31 @@ export let USER_PROFILE = {
   assumptions: { ...SYSTEM_PROFILE.assumptions }
 };
 
-export function loadUserProfile() {
-  const raw = localStorage.getItem('userRiskAssumptions');
+function getUserRiskStorageKey(userId) {
+  return `userRiskAssumptions:${String(userId || 'anonymous').toLowerCase()}`
+}
+
+export function loadUserProfile(userId = 'anonymous') {
+  const raw = localStorage.getItem(getUserRiskStorageKey(userId));
   if (raw) {
     try {
       const overrides = JSON.parse(raw);
       USER_PROFILE.assumptions = { ...SYSTEM_PROFILE.assumptions, ...overrides };
-      console.log("Loaded user risk assumptions from localStorage");
+      console.log(`Loaded user risk assumptions for ${userId}`);
     } catch (e) {
       console.warn("Invalid user assumptions in localStorage – using system defaults");
+      USER_PROFILE.assumptions = { ...SYSTEM_PROFILE.assumptions };
     }
   } else {
+    USER_PROFILE.assumptions = { ...SYSTEM_PROFILE.assumptions };
     console.log("No user risk overrides – using system defaults");
   }
 }
 
-export function saveUserProfile(overrides = {}) {
-  localStorage.setItem('userRiskAssumptions', JSON.stringify(overrides));
+export function saveUserProfile(userId = 'anonymous', overrides = {}) {
+  localStorage.setItem(getUserRiskStorageKey(userId), JSON.stringify(overrides));
   USER_PROFILE.assumptions = { ...SYSTEM_PROFILE.assumptions, ...overrides };
-  console.log("Saved user risk assumptions");
+  console.log(`Saved user risk assumptions for ${userId}`);
 }
 
 // API endpoint

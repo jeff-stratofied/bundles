@@ -98,6 +98,10 @@ export function BundlesContent() {
     setUseCustomPrice,
     notes,
     setNotes,
+    pricingSource,
+    setPricingSource,
+    hasUserOverrides,
+    userVsSystemDeltaPct,
     lockedLoanIds,
     filteredLoans,
     selectedLoans,
@@ -269,15 +273,42 @@ export function BundlesContent() {
                 </button>
               </div>
 
+              <div
+  style={{
+    display: 'inline-flex',
+    alignItems: 'center',
+    gap: 6,
+    padding: '4px 10px',
+    borderRadius: 999,
+    background:
+      pricingSource === 'user'
+        ? 'rgba(22,163,74,0.10)'
+        : 'rgba(37,99,235,0.10)',
+    color: pricingSource === 'user' ? '#166534' : '#1d4ed8',
+    fontSize: 11,
+    fontWeight: 700,
+    marginBottom: 10,
+  }}
+>
+  {pricingSource === 'user' ? 'User Updated Price' : 'System Price'}
+</div>
+
               <div style={{ border: '1px solid #e2e8f0', borderRadius: 10, overflow: 'auto', maxHeight: 360 }}>
                 <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 12 }}>
-                  <thead>
-                    <tr>
-                      {['', 'Loan', 'Rate', 'WAL', 'Risk', 'NPV'].map(h => (
-                        <th key={h} style={S.th}>{h}</th>
-                      ))}
-                    </tr>
-                  </thead>
+                <thead>
+  <tr>
+    {[
+      '',
+      'Loan',
+      'Rate',
+      'WAL',
+      'Risk',
+      pricingSource === 'user' ? 'User Updated Price' : 'System Price',
+    ].map(h => (
+      <th key={h} style={S.th}>{h}</th>
+    ))}
+  </tr>
+</thead>
                   <tbody>
                     {filteredLoans.length === 0 && (
                       <tr>
@@ -316,15 +347,28 @@ export function BundlesContent() {
                             <div style={{ fontSize: 10, color: '#94a3b8' }}>{loan.school}</div>
                           </td>
                           <td style={S.td}>{fmtPct(loan.nominalRate)}</td>
-                          <td style={S.td}>{Number(loan.wal || 0).toFixed(1)}y</td>
-                          <td style={S.td}>
-                            <span style={{ fontSize: 10, fontWeight: 700,
-                              color: loan.riskTier === 'LOW' ? '#16a34a' : loan.riskTier === 'MEDIUM' ? '#d97706' : loan.riskTier === 'HIGH' ? '#dc2626' : '#7c3aed'
-                            }}>
-                              {loan.riskTier}
-                            </span>
-                          </td>
-                          <td style={{ ...S.td, textAlign: 'right' }}>{fmt$(loan.npv || 0)}</td>
+                          <td style={S.td}>{Number(loan.pricing?.[pricingSource]?.wal ?? loan.wal ?? 0).toFixed(1)}y</td>
+<td style={S.td}>
+  <span
+    style={{
+      fontSize: 10,
+      fontWeight: 700,
+      color:
+        (loan.pricing?.[pricingSource]?.riskTier ?? loan.riskTier) === 'LOW'
+          ? '#16a34a'
+          : (loan.pricing?.[pricingSource]?.riskTier ?? loan.riskTier) === 'MEDIUM'
+            ? '#d97706'
+            : (loan.pricing?.[pricingSource]?.riskTier ?? loan.riskTier) === 'HIGH'
+              ? '#dc2626'
+              : '#7c3aed',
+    }}
+  >
+    {loan.pricing?.[pricingSource]?.riskTier ?? loan.riskTier}
+  </span>
+</td>
+<td style={{ ...S.td, textAlign: 'right' }}>
+  {fmt$(loan.pricing?.[pricingSource]?.npv ?? loan.npv ?? 0)}
+</td>
                         </tr>
                       )
                     })}
@@ -359,46 +403,120 @@ export function BundlesContent() {
                   Pricing
                 </div>
 
-                <div style={{ marginBottom: 10 }}>
-                  <div style={{ fontSize: 12, color: '#475569', marginBottom: 4 }}>Suggested Price (NPV-based)</div>
-                  <div style={{ fontSize: 18, fontWeight: 800, color: '#2563eb' }}>{fmt$(stats.suggestedPrice)}</div>
-                  <div style={{ fontSize: 11, color: '#94a3b8' }}>
-  {defaultPremiumPct >= 0 ? '+' : ''}{fmtPct(defaultPremiumPct)} typical strategy premium
+                <div style={{ marginBottom: 12 }}>
+  <div style={{ fontSize: 12, color: '#475569', marginBottom: 8 }}>Valuation Source</div>
+
+  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8, marginBottom: 8 }}>
+    <button
+      type="button"
+      onClick={() => setPricingSource('system')}
+      style={{
+        padding: '10px 12px',
+        borderRadius: 10,
+        textAlign: 'left',
+        border: `2px solid ${pricingSource === 'system' ? '#2563eb' : '#e2e8f0'}`,
+        background: pricingSource === 'system' ? 'rgba(37,99,235,0.08)' : '#fff',
+        cursor: 'pointer',
+      }}
+    >
+      <div style={{ fontSize: 13, fontWeight: 700, color: '#0f172a' }}>System Settings</div>
+      <div style={{ fontSize: 10, color: '#64748b', marginTop: 3 }}>
+        Use platform valuation controls
+      </div>
+    </button>
+
+    <button
+      type="button"
+      onClick={() => hasUserOverrides && setPricingSource('user')}
+      disabled={!hasUserOverrides}
+      style={{
+        padding: '10px 12px',
+        borderRadius: 10,
+        textAlign: 'left',
+        border: `2px solid ${
+          pricingSource === 'user' && hasUserOverrides ? '#16a34a' : '#e2e8f0'
+        }`,
+        background:
+          pricingSource === 'user' && hasUserOverrides ? 'rgba(22,163,74,0.08)' : '#fff',
+        cursor: hasUserOverrides ? 'pointer' : 'not-allowed',
+        opacity: hasUserOverrides ? 1 : 0.45,
+      }}
+    >
+      <div style={{ fontSize: 13, fontWeight: 700, color: '#0f172a' }}>User Settings</div>
+      <div style={{ fontSize: 10, color: '#64748b', marginTop: 3 }}>
+        Use your saved risk & value controls
+      </div>
+    </button>
+  </div>
+
+  <div style={{ fontSize: 11, color: hasUserOverrides ? '#475569' : '#94a3b8', lineHeight: 1.5 }}>
+    {hasUserOverrides
+      ? `User Settings available. ${userVsSystemDeltaPct >= 0 ? '+' : ''}${fmtPct(userVsSystemDeltaPct)} vs System for the selected bundle.`
+      : 'Adjust Risk & Value Controls on Loan Valuation to enable User Settings.'}
+  </div>
 </div>
-                </div>
 
-                <label style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 12, marginBottom: 10, cursor: 'pointer' }}>
-                  <input
-                    type="checkbox"
-                    checked={useCustomPrice}
-                    onChange={e => setUseCustomPrice(e.target.checked)}
-                  />
-                  Set custom premium / discount %
-                </label>
+<div style={{ marginBottom: 10 }}>
+  <div style={{ fontSize: 12, color: '#475569', marginBottom: 4 }}>
+    Suggested Price (NPV-based)
+  </div>
+  <div style={{ fontSize: 18, fontWeight: 800, color: '#2563eb' }}>
+    {fmt$(stats.suggestedPrice)}
+  </div>
+  <div style={{ fontSize: 11, color: '#94a3b8' }}>
+    Based on {pricingSource === 'user' ? 'User Settings' : 'System Settings'} ·
+    {' '}
+    {defaultPremiumPct >= 0 ? '+' : ''}{fmtPct(defaultPremiumPct)} typical strategy premium
+  </div>
+</div>
 
-                {useCustomPrice && (
-                  <div style={{ marginBottom: 10 }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                      <input
-                        type="range"
-                        min={-20}
-                        max={20}
-                        step={0.5}
-                        value={customPremiumPct}
-                        onChange={e => setCustomPremiumPct(Number(e.target.value))}
-                        style={{ flex: 1 }}
-                      />
-                      <input
-                        type="number"
-                        value={customPremiumPct}
-                        step={0.5}
-                        onChange={e => setCustomPremiumPct(Number(e.target.value))}
-                        style={{ width: 64, padding: '4px 6px', border: '1px solid #e2e8f0', borderRadius: 6, fontSize: 12 }}
-                      />
-                      <span style={{ fontSize: 12, color: '#475569' }}>%</span>
-                    </div>
-                  </div>
-                )}
+<label
+  style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: 8,
+    fontSize: 12,
+    marginBottom: 10,
+    cursor: 'pointer',
+  }}
+>
+  <input
+    type="checkbox"
+    checked={useCustomPrice}
+    onChange={e => setUseCustomPrice(e.target.checked)}
+  />
+  Set custom premium / discount %
+</label>
+
+{useCustomPrice && (
+  <div style={{ marginBottom: 10 }}>
+    <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+      <input
+        type="range"
+        min={-20}
+        max={20}
+        step={0.5}
+        value={customPremiumPct}
+        onChange={e => setCustomPremiumPct(Number(e.target.value))}
+        style={{ flex: 1 }}
+      />
+      <input
+        type="number"
+        value={customPremiumPct}
+        step={0.5}
+        onChange={e => setCustomPremiumPct(Number(e.target.value))}
+        style={{
+          width: 64,
+          padding: '4px 6px',
+          border: '1px solid #e2e8f0',
+          borderRadius: 6,
+          fontSize: 12,
+        }}
+      />
+      <span style={{ fontSize: 12, color: '#475569' }}>%</span>
+    </div>
+  </div>
+)}
 
                 <div style={{
                   background: '#f8fafc', borderRadius: 8, padding: '12px 14px',
@@ -407,9 +525,9 @@ export function BundlesContent() {
                   <div style={{ fontSize: 11, color: '#64748b', marginBottom: 4 }}>Asking Price</div>
                   <div style={{ fontSize: 22, fontWeight: 800, color: '#0f172a' }}>{fmt$(askingPrice)}</div>
                   <div style={{ fontSize: 11, color: effectivePremiumPct >= 0 ? '#16a34a' : '#dc2626', marginTop: 2 }}>
-                    {effectivePremiumPct >= 0 ? '+' : ''}{fmtPct(effectivePremiumPct)} vs par
-                    {effectivePremiumPct > 0 ? ' (Premium)' : effectivePremiumPct < 0 ? ' (Discount)' : ' (Par)'}
-                  </div>
+  {effectivePremiumPct >= 0 ? '+' : ''}{fmtPct(effectivePremiumPct)} vs par
+  {effectivePremiumPct > 0 ? ' (Premium)' : effectivePremiumPct < 0 ? ' (Discount)' : ' (At Par)'}
+</div>
                 </div>
               </div>
 
@@ -550,6 +668,7 @@ function BundleCard({
 }) {
   const [expanded, setExpanded] = useState(false)
   const stratDef = BUNDLE_STRATEGIES.find(s => s.key === bundle.strategy)
+  const bundlePricingSource = bundle.pricingSource === 'user' ? 'user' : 'system'
   const fmt$ = (n: number) =>
     n.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2 })
 
@@ -568,19 +687,52 @@ function BundleCard({
             <BundleStatusBadge status={bundle.status} />
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, auto)', gap: '0 24px', marginBottom: 8 }}>
-            <StatPill label="Asking Price" value={fmt$(bundle.askingPrice)} color="#2563eb" />
-            <StatPill label="Par Value" value={fmt$(bundle.totalPar)} />
-            <StatPill
-              label="Premium"
-              value={`${bundle.askingPremiumPct >= 0 ? '+' : ''}${bundle.askingPremiumPct.toFixed(2)}%`}
-              color={bundle.askingPremiumPct > 0 ? '#16a34a' : bundle.askingPremiumPct < 0 ? '#dc2626' : '#475569'}
-            />
-            <StatPill label="WAL" value={`${bundle.bundleWAL.toFixed(1)}y`} />
-            <StatPill label="Loans" value={String(bundle.loans.length)} />
-          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(6, auto)', gap: '0 24px', marginBottom: 8 }}>
+  <StatPill label="Asking Price" value={fmt$(bundle.askingPrice)} color="#2563eb" />
+  <StatPill label="Par Value" value={fmt$(bundle.totalPar)} />
+  <StatPill label="Bundle NPV" value={fmt$(bundle.bundleNPV)} />
+  <StatPill
+    label={
+      bundle.askingPremiumPct > 0
+        ? 'Premium to NPV'
+        : bundle.askingPremiumPct < 0
+          ? 'Discount to NPV'
+          : 'At NPV'
+    }
+    value={`${bundle.askingPremiumPct >= 0 ? '+' : ''}${bundle.askingPremiumPct.toFixed(2)}%`}
+    color={
+      bundle.askingPremiumPct > 0
+        ? '#16a34a'
+        : bundle.askingPremiumPct < 0
+          ? '#dc2626'
+          : '#475569'
+    }
+  />
+  <StatPill label="WAL" value={`${bundle.bundleWAL.toFixed(1)}y`} />
+  <StatPill label="Loans" value={String(bundle.loans.length)} />
+</div>
 
-          <RiskMiniBar riskMix={bundle.riskMix} />
+<div
+  style={{
+    display: 'inline-flex',
+    alignItems: 'center',
+    gap: 6,
+    padding: '4px 10px',
+    borderRadius: 999,
+    background:
+      bundlePricingSource === 'user'
+        ? 'rgba(22,163,74,0.10)'
+        : 'rgba(37,99,235,0.10)',
+    color: bundlePricingSource === 'user' ? '#166534' : '#1d4ed8',
+    fontSize: 11,
+    fontWeight: 700,
+    marginBottom: 8,
+  }}
+>
+  {bundlePricingSource === 'user' ? 'User Updated Price' : 'System Price'}
+</div>
+
+<RiskMiniBar riskMix={bundle.riskMix} />
         </div>
 
         <div style={{ display: 'flex', gap: 6, marginLeft: 16, flexShrink: 0 }}>
@@ -610,13 +762,22 @@ function BundleCard({
       {expanded && (
         <div style={{ marginTop: 12, borderTop: '1px solid #f1f5f9', paddingTop: 12 }}>
           <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 12 }}>
-            <thead>
-              <tr>
-                {['Loan', 'School', '% Owned', 'Rate', 'WAL', 'Risk', 'NPV', 'Asking'].map(h => (
-                  <th key={h} style={S.th}>{h}</th>
-                ))}
-              </tr>
-            </thead>
+          <thead>
+  <tr>
+    {[
+      'Loan',
+      'School',
+      '% Owned',
+      'Rate',
+      'WAL',
+      'Risk',
+      bundlePricingSource === 'user' ? 'User Updated Price' : 'System Price',
+      'Asking',
+    ].map(h => (
+      <th key={h} style={S.th}>{h}</th>
+    ))}
+  </tr>
+</thead>
             <tbody>
               {bundle.loans.map(loan => (
                 <tr key={loan.loanId}>

@@ -31,6 +31,12 @@ export function useBundleBuilder(userId: string) {
   const [customPremiumPct, setCustomPremiumPct] = useState<number>(0)
   const [useCustomPrice, setUseCustomPrice] = useState(false)
   const [notes, setNotes] = useState('')
+  const [pricingSource, setPricingSource] = useState<'system' | 'user'>('system')
+
+  const hasUserOverrides = useMemo(
+    () => loans.some(l => l.hasUserOverrides),
+    [loans]
+  )
 
   const lockedLoanIds = useMemo(
     () => getLockedLoanIds(userId),
@@ -43,8 +49,8 @@ export function useBundleBuilder(userId: string) {
   )
 
   const filteredLoans = useMemo(
-    () => filterLoansByStrategy(availableLoans, selectedStrategy),
-    [availableLoans, selectedStrategy]
+    () => filterLoansByStrategy(availableLoans, selectedStrategy, pricingSource),
+    [availableLoans, selectedStrategy, pricingSource]
   )
 
   const selectedLoans = useMemo(
@@ -53,15 +59,21 @@ export function useBundleBuilder(userId: string) {
   )
 
   const stats = useMemo(
-    () => computeBundleStats(selectedLoans),
-    [selectedLoans]
+    () => computeBundleStats(selectedLoans, pricingSource),
+    [selectedLoans, pricingSource]
   )
 
   const strategyDef = BUNDLE_STRATEGIES.find(s => s.key === selectedStrategy)
   const defaultPremiumPct = strategyDef?.defaultPremiumPct ?? 0
-  
   const effectivePremiumPct = useCustomPrice ? customPremiumPct : defaultPremiumPct
-const askingPrice = stats.suggestedPrice * (1 + effectivePremiumPct / 100)
+  const askingPrice = stats.suggestedPrice * (1 + effectivePremiumPct / 100)
+
+  const userVsSystemDeltaPct = useMemo(() => {
+    const systemStats = computeBundleStats(selectedLoans, 'system')
+    if (!systemStats.suggestedPrice) return 0
+    return ((stats.suggestedPrice - systemStats.suggestedPrice) / systemStats.suggestedPrice) * 100
+  }, [selectedLoans, stats.suggestedPrice])
+
   const myBundles = useMemo(
     () =>
       bundles
@@ -85,6 +97,7 @@ const askingPrice = stats.suggestedPrice * (1 + effectivePremiumPct / 100)
     setCustomPremiumPct(0)
     setUseCustomPrice(false)
     setNotes('')
+    setPricingSource('system')
     setBuilderOpen(true)
   }
 
@@ -98,6 +111,7 @@ const askingPrice = stats.suggestedPrice * (1 + effectivePremiumPct / 100)
     setCustomPremiumPct(bundle.askingPremiumPct)
     setUseCustomPrice(true)
     setNotes(bundle.notes ?? '')
+    setPricingSource((bundle as any).pricingSource ?? 'system')
     setBuilderOpen(true)
   }
 
@@ -126,22 +140,26 @@ const askingPrice = stats.suggestedPrice * (1 + effectivePremiumPct / 100)
       return
     }
 
-    const bundleLoan = (l: any): BundleLoan => ({
-      loanId: l.loanId,
-      loanName: l.loanName,
-      school: l.school ?? '',
-      ownershipPct: l.ownershipPct,
-      principal: l.principal,
-      nominalRate: l.nominalRate,
-      termYears: l.termYears,
-      graceYears: l.graceYears,
-      purchasePrice: l.purchasePrice ?? 0,
-      currentBalance: l.balance ?? 0,
-      npv: l.npv ?? 0,
-      irr: l.irr ?? 0,
-      wal: l.wal ?? 0,
-      riskTier: l.riskTier ?? 'UNKNOWN',
-    })
+    const bundleLoan = (l: any): BundleLoan => {
+      const pricing = l.pricing?.[pricingSource]
+
+      return {
+        loanId: l.loanId,
+        loanName: l.loanName,
+        school: l.school ?? '',
+        ownershipPct: l.ownershipPct,
+        principal: l.principal,
+        nominalRate: l.nominalRate,
+        termYears: l.termYears,
+        graceYears: l.graceYears,
+        purchasePrice: l.purchasePrice ?? 0,
+        currentBalance: l.balance ?? 0,
+        npv: pricing?.npv ?? l.npv ?? 0,
+        irr: pricing?.irr ?? l.irr ?? 0,
+        wal: pricing?.wal ?? l.wal ?? 0,
+        riskTier: pricing?.riskTier ?? l.riskTier ?? 'UNKNOWN',
+      }
+    }
 
     const now = new Date().toISOString()
     const autoName = generateBundleName(selectedStrategy, stats)
@@ -166,11 +184,16 @@ const askingPrice = stats.suggestedPrice * (1 + effectivePremiumPct / 100)
       riskMix: stats.riskMix,
       schoolCount: stats.schoolCount,
       notes,
-    }
+      ...(hasUserOverrides ? { pricingSource } : { pricingSource: 'system' }),
+    } as Bundle
 
     const ok = await saveBundle(bundle)
-    if (ok) setBuilderOpen(false)
-    else alert('Failed to save bundle. Try again.')
+    if (ok) {
+      setBuilderOpen(false)
+      setEditingBundle(null)
+    } else {
+      alert('Failed to save bundle. Try again.')
+    }
   }
 
   async function handleDelete(bundleId: string) {
@@ -197,7 +220,7 @@ const askingPrice = stats.suggestedPrice * (1 + effectivePremiumPct / 100)
     bundleName,
     setBundleName,
     saleType,
-setSaleType,
+    setSaleType,
     targetBuyer,
     setTargetBuyer,
     customPremiumPct,
@@ -206,6 +229,10 @@ setSaleType,
     setUseCustomPrice,
     notes,
     setNotes,
+    pricingSource,
+    setPricingSource,
+    hasUserOverrides,
+    userVsSystemDeltaPct,
     lockedLoanIds,
     filteredLoans,
     selectedLoans,

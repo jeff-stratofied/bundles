@@ -52,6 +52,7 @@ export interface Bundle {
   riskMix: Record<string, number>  // { LOW: 3, MEDIUM: 2, HIGH: 1 }
   schoolCount: number
   notes: string
+  pricingSource?: 'system' | 'user'
 }
 
 // ─── Hook ─────────────────────────────────────────────────────────────────────
@@ -124,13 +125,14 @@ export function useBundles() {
     return saveBundles(newBundles)
   }, [bundles, saveBundles])
 
-  // Generate a unique bundle ID
+  // Generate a truly unique bundle ID
   const generateBundleId = useCallback((): string => {
-    const date = new Date()
-    const yyyymm = `${date.getFullYear()}${String(date.getMonth() + 1).padStart(2, '0')}`
-    const seq = String(bundles.length + 1).padStart(3, '0')
-    return `BDL-${yyyymm}-${seq}`
-  }, [bundles.length])
+    const now = new Date()
+    const yyyymm = `${now.getFullYear()}${String(now.getMonth() + 1).padStart(2, '0')}`
+    const ts = `${now.getDate().toString().padStart(2, '0')}${now.getHours().toString().padStart(2, '0')}${now.getMinutes().toString().padStart(2, '0')}${now.getSeconds().toString().padStart(2, '0')}${now.getMilliseconds().toString().padStart(3, '0')}`
+    const rand = Math.random().toString(36).slice(2, 6).toUpperCase()
+    return `BDL-${yyyymm}-${ts}-${rand}`
+  }, [])
 
   // Get loans currently locked in active bundles (draft or offered) by a user
   const getLockedLoanIds = useCallback((userId: string): Set<string> => {

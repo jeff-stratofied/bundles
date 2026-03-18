@@ -88,7 +88,9 @@ type RowModel = {
 }
 
 // ── Constants ──
-const STORAGE_KEY = 'userRiskAssumptions'
+function getUserRiskStorageKey(userId: string) {
+  return `userRiskAssumptions:${String(userId || 'anonymous').toLowerCase()}`
+}
 
 function getSystemAssumptions(): Assumptions {
   return { ...SYSTEM_PROFILE.assumptions } as Assumptions
@@ -280,6 +282,7 @@ function runValuation(
 export default function LoanValuationPage() {
   const navigate = useNavigate()
   const { userId } = useUser()
+  const riskStorageKey = useMemo(() => getUserRiskStorageKey(userId), [userId])
 
   // Fetch ALL loans directly from the backend — same as the HTML version which calls
   // fetch(`${BACKEND_URL}/loans`) to get every loan, then filters client-side by ownership mode.
@@ -326,15 +329,15 @@ export default function LoanValuationPage() {
         ))
 
         try {
-          const raw = localStorage.getItem(STORAGE_KEY)
-          if (raw) {
-            const merged = deepMergeAssumptions(getSystemAssumptions(), JSON.parse(raw))
-            setSavedAssumptions(merged)
-            setDraftAssumptions(merged)
-          } else {
-            setSavedAssumptions(getSystemAssumptions())
-            setDraftAssumptions(getSystemAssumptions())
-          }
+          const raw = localStorage.getItem(riskStorageKey)
+if (raw) {
+  const merged = deepMergeAssumptions(getSystemAssumptions(), JSON.parse(raw))
+  setSavedAssumptions(merged)
+  setDraftAssumptions(merged)
+} else {
+  setSavedAssumptions(getSystemAssumptions())
+  setDraftAssumptions(getSystemAssumptions())
+}
         } catch {
           setSavedAssumptions(getSystemAssumptions())
           setDraftAssumptions(getSystemAssumptions())
@@ -346,7 +349,7 @@ export default function LoanValuationPage() {
       }
     }
     init()
-  }, [])
+  }, [riskStorageKey])
 
   // ── Build rows via real engine ──
   const rows = useMemo<RowModel[]>(() => {
@@ -488,13 +491,13 @@ export default function LoanValuationPage() {
   const openRiskDrawer = () => { setDraftAssumptions(savedAssumptions); setRiskDrawerOpen(true) }
   const saveRiskDrawer = () => {
     setSavedAssumptions(draftAssumptions)
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(draftAssumptions))
+    localStorage.setItem(riskStorageKey, JSON.stringify(draftAssumptions))
     setRiskDrawerOpen(false)
   }
   const resetAll = () => {
     const sys = getSystemAssumptions()
     setSavedAssumptions(sys); setDraftAssumptions(sys)
-    localStorage.removeItem(STORAGE_KEY)
+    localStorage.removeItem(riskStorageKey)
   }
 
   // ══════════════════════════════════════════════════════

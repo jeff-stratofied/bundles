@@ -92,6 +92,7 @@ export const BUNDLE_STRATEGIES: StrategyDef[] = [
 export function filterLoansByStrategy(
   loans: any[],
   strategy: BundleStrategy,
+  pricingSource: 'system' | 'user' = 'system',
   today: Date = new Date()
 ): any[] {
   if (strategy === 'custom') return loans
@@ -107,12 +108,12 @@ export function filterLoansByStrategy(
       (e: any) => String(e?.type ?? '').toLowerCase() === 'default'
     )
 
-    // Defaulted loans can only be included in Custom bundles
     if (hasDefaultEvent) return false
 
+    const pricing = loan.pricing?.[pricingSource]
     const rate = Number(loan.nominalRate ?? 0)
-    const wal = Number(loan.wal ?? 0)
-    const riskTier = String(loan.riskTier ?? loan.user?.riskTier ?? '')
+    const wal = Number(pricing?.wal ?? loan.wal ?? 0)
+    const riskTier = String(pricing?.riskTier ?? loan.riskTier ?? 'UNKNOWN')
     const loanStart = loan.loanStartDate ? new Date(loan.loanStartDate + 'T00:00:00') : null
 
     if (criteria.riskTiers && criteria.riskTiers.length > 0) {
@@ -135,9 +136,10 @@ export function filterLoansByStrategy(
   })
 }
 
-// ─── Bundle Stats Calculator ──────────────────────────────────────────────────
-
-export function computeBundleStats(loans: any[]): {
+export function computeBundleStats(
+  loans: any[],
+  pricingSource: 'system' | 'user' = 'system'
+): {
   totalPar: number
   weightedRate: number
   bundleWAL: number
@@ -149,8 +151,14 @@ export function computeBundleStats(loans: any[]): {
 } {
   if (!loans.length) {
     return {
-      totalPar: 0, weightedRate: 0, bundleWAL: 0, bundleNPV: 0,
-      suggestedPrice: 0, riskMix: {}, schoolCount: 0, askingPremiumPct: 0,
+      totalPar: 0,
+      weightedRate: 0,
+      bundleWAL: 0,
+      bundleNPV: 0,
+      suggestedPrice: 0,
+      riskMix: {},
+      schoolCount: 0,
+      askingPremiumPct: 0,
     }
   }
 
@@ -162,18 +170,21 @@ export function computeBundleStats(loans: any[]): {
   const schools = new Set<string>()
 
   loans.forEach(loan => {
-    const remainingBal = Number(loan.balance ?? loan.currentBalance ?? 0) * Number(loan.ownershipPct ?? 1)
+    const pricing = loan.pricing?.[pricingSource]
+    const remainingBal =
+      Number(loan.balance ?? loan.currentBalance ?? 0) * Number(loan.ownershipPct ?? 1)
     const rate = Number(loan.nominalRate ?? 0)
-    const wal = Number(loan.wal ?? 0)
-    const npv = Number(loan.npv ?? 0)
-    const risk = String(loan.riskTier ?? loan.user?.riskTier ?? 'UNKNOWN')
+    const wal = Number(pricing?.wal ?? loan.wal ?? 0)
+    const npv = Number(pricing?.npv ?? loan.npv ?? 0)
+    const risk = String(pricing?.riskTier ?? loan.riskTier ?? 'UNKNOWN')
     const school = String(loan.school ?? '')
 
     totalPar += remainingBal
-rateWeightedSum += rate * remainingBal
-walWeightedSum += wal * remainingBal
+    rateWeightedSum += rate * remainingBal
+    walWeightedSum += wal * remainingBal
     totalNPV += npv
     riskMix[risk] = (riskMix[risk] ?? 0) + 1
+
     if (school) schools.add(school)
   })
 
