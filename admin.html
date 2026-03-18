@@ -811,18 +811,18 @@ input:focus, select:focus {
 <script type="module">
 const BACKEND_URL = "https://bundles-api.jeff-263.workers.dev";
   
-  import { loadLoans } from "/bundles/src/utils/loadLoans.js?v=dev";
+  import { loadLoans } from "/src/utils/loadLoans.js?v=dev";
 
-  import { normalizeOwnership } from "/bundles/src/utils/ownershipEngine.js?v=dev";
+  import { normalizeOwnership } from "/src/utils/ownershipEngine.js?v=dev";
 
   import {
   BORROWERS,
   getBorrowerById,
   upsertBorrower,
   ensureBorrowerExists
-} from "/bundles/src/utils/borrowerStore.js?v=dev";
+} from "/src/utils/borrowerStore.js?v=dev";
 
-import { valueLoan, loadValuationCurves, VALUATION_CURVES } from "/bundles/src/utils/valuationEngine.js?v=dev";
+import { valueLoan, loadValuationCurves, VALUATION_CURVES } from "/src/utils/valuationEngine.js?v=dev";
 
 const GITHUB_RAW_BASE = "https://raw.githubusercontent.com/jeff-stratofied/bundles/src/data";
 
