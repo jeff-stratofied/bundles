@@ -28,17 +28,10 @@ jobs:
         run: npm ci
       - name: Build app
         run: npm run build
-      - name: Assemble site
-        run: |
-          mkdir -p site
-          rsync -av \
-            --exclude '.git' \
-            --exclude '.github' \
-            --exclude 'node_modules' \
-            --exclude 'dist' \
-            --exclude 'src' \
-            ./ site/
-          rsync -av dist/ site/
+     - name: Upload artifact
+  uses: actions/upload-pages-artifact@v3
+  with:
+    path: dist
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
