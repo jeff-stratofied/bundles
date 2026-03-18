@@ -8,7 +8,7 @@ type UserRecord = {
 export let USERS: Record<string, UserRecord> = {}
 
 export async function loadUsers(
-  backendUrl = 'https://loan-valuation-api.jeff-263.workers.dev'
+  backendUrl = 'https://bundles-api.jeff-263.workers.dev'
 ) {
   try {
     const res = await fetch(`${backendUrl}/platformConfig`, { cache: 'no-store' })

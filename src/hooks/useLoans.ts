@@ -12,8 +12,10 @@ import {
 import schoolTiersJson from '../data/schoolTiers.json'
 import valuationCurvesJson from '../data/valuationCurves.json'
 
-const LOANS_URL = 'https://raw.githubusercontent.com/jeff-stratofied/loan-valuation/main/data/loans.json'
-const BORROWERS_URL = 'https://raw.githubusercontent.com/jeff-stratofied/loan-valuation/main/data/borrowers.json'
+const API_BASE = 'https://bundles-api.jeff-263.workers.dev'
+
+const LOANS_URL = `${API_BASE}/loans`
+const BORROWERS_URL = `${API_BASE}/borrowers`
 function getUserRiskStorageKey(userId: string) {
   return `userRiskAssumptions:${String(userId || 'anonymous').toLowerCase()}`
 }
