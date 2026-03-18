@@ -114,64 +114,6 @@
       "schoolCount": 1,
       "notes": "",
       "pricingSource": "system"
-    },
-    {
-      "bundleId": "BDL-202603-18120210438-45U4",
-      "bundleName": "SEASN-8.37-7.7yr-202603",
-      "strategy": "seasoned",
-      "status": "offered",
-      "createdBy": "jeff",
-      "createdAt": "2026-03-18T16:02:10.438Z",
-      "updatedAt": "2026-03-18T16:02:10.438Z",
-      "targetBuyer": "any",
-      "loans": [
-        {
-          "loanId": "GXCZPI4VJC",
-          "loanName": "MICH 2024 9.00",
-          "school": "Michigan",
-          "ownershipPct": 0.25,
-          "principal": 5000,
-          "nominalRate": 9,
-          "termYears": 10,
-          "graceYears": 0.5,
-          "purchasePrice": 1250,
-          "currentBalance": 4847.86,
-          "npv": 1205.8195269608366,
-          "irr": 7.968696266412737,
-          "wal": 6.2789742276729354,
-          "riskTier": "HIGH"
-        },
-        {
-          "loanId": "HCZB8N2L8Z",
-          "loanName": "PIT 2024 8.25",
-          "school": "Pitt",
-          "ownershipPct": 0.5,
-          "principal": 12000,
-          "nominalRate": 8.25,
-          "termYears": 12,
-          "graceYears": 1.5,
-          "purchasePrice": 6000,
-          "currentBalance": 12274.16,
-          "npv": 6317.575329147997,
-          "irr": 7.836031106114389,
-          "wal": 7.959645549048332,
-          "riskTier": "MEDIUM"
-        }
-      ],
-      "askingPrice": 7824.33,
-      "askingPremiumPct": 4,
-      "suggestedPrice": 7523.39,
-      "totalPar": 7349.05,
-      "weightedRate": 8.3737,
-      "bundleWAL": 7.68,
-      "bundleNPV": 7523.39,
-      "riskMix": {
-        "HIGH": 1,
-        "MEDIUM": 1
-      },
-      "schoolCount": 2,
-      "notes": "",
-      "pricingSource": "user"
     }
   ]
 }
