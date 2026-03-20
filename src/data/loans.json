@@ -2,6 +2,7 @@
   "loans": [
     {
       "loanId": "I2L69NBHEW",
+      "borrowerId": "BRW-I2L69NBHEW",
       "loanName": "PIT-2025 9.60",
       "school": "Pitt",
       "loanStartDate": "2025-05-01",
@@ -11,7 +12,6 @@
       "graceYears": 0.5,
       "loanStatus": "",
       "feeWaiver": "none",
-      "borrowerId": "BRW-I2L69NBHEW",
       "events": [],
       "ownershipLots": [
         {
@@ -21,14 +21,21 @@
           "pricePaid": "8000.00"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 6,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2025-05-01"
     },
     {
       "loanId": "3NGUTRAXJJ",
+      "borrowerId": "BRW-3NGUTRAXJJ",
       "loanName": "PIT-2025 9.10",
       "school": "Pitt",
       "loanStartDate": "2025-04-01",
@@ -38,7 +45,6 @@
       "graceYears": 0,
       "loanStatus": "",
       "feeWaiver": "none",
-      "borrowerId": "BRW-3NGUTRAXJJ",
       "events": [],
       "ownershipLots": [
         {
@@ -48,14 +54,21 @@
           "pricePaid": "9000"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 0,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2025-04-01"
     },
     {
       "loanId": "XW40BF8G86",
+      "borrowerId": "BRW-XW40BF8G86",
       "loanName": "NYU-2025 9.50",
       "school": "NYU",
       "loanStartDate": "2025-02-01",
@@ -65,7 +78,6 @@
       "graceYears": 2,
       "loanStatus": "",
       "feeWaiver": "none",
-      "borrowerId": "BRW-XW40BF8G86",
       "events": [],
       "ownershipLots": [
         {
@@ -75,14 +87,21 @@
           "pricePaid": "7500"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 24,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2025-02-01"
     },
     {
       "loanId": "8VEXS7CN7O",
+      "borrowerId": "BRW-8VEXS7CN7O",
       "loanName": "CMU-2024 8.65",
       "school": "Carnegie Mellon",
       "loanStartDate": "2024-03-01",
@@ -92,7 +111,6 @@
       "graceYears": 0,
       "loanStatus": "",
       "feeWaiver": "none",
-      "borrowerId": "BRW-8VEXS7CN7O",
       "events": [],
       "ownershipLots": [
         {
@@ -102,14 +120,21 @@
           "pricePaid": "10000"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 0,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2024-03-01"
     },
     {
       "loanId": "L7IM1YE0Q8",
+      "borrowerId": "BRW-L7IM1YE0Q8",
       "loanName": "TTCH 2025 10.0",
       "school": "Texas Tech University",
       "loanStartDate": "2025-10-01",
@@ -119,7 +144,6 @@
       "graceYears": 0,
       "loanStatus": "",
       "feeWaiver": "none",
-      "borrowerId": "BRW-L7IM1YE0Q8",
       "events": [],
       "ownershipLots": [
         {
@@ -129,14 +153,21 @@
           "pricePaid": "10000"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 0,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2025-11-25"
     },
     {
       "loanId": "7EO4B3SHJY",
+      "borrowerId": "BRW-7EO4B3SHJY",
       "loanName": "PSU 2024 8.83",
       "school": "Penn State",
       "loanStartDate": "2024-01-31",
@@ -146,7 +177,6 @@
       "graceYears": 0,
       "loanStatus": "",
       "feeWaiver": "none",
-      "borrowerId": "BRW-7EO4B3SHJY",
       "events": [
         {
           "id": "653175a2-1761-4be4-9f77-5a8ff0c4341c",
@@ -175,14 +205,21 @@
           "pricePaid": "7700"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 0,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2024-02-07"
     },
     {
       "loanId": "C0RAT4N23A",
+      "borrowerId": "BRW-C0RAT4N23A",
       "loanName": "OSU 2024 8.00",
       "school": "Ohio State",
       "loanStartDate": "2024-02-01",
@@ -192,7 +229,6 @@
       "graceYears": 0.5,
       "loanStatus": "",
       "feeWaiver": "none",
-      "borrowerId": "BRW-C0RAT4N23A",
       "events": [
         {
           "id": "9212b05c-acd1-4b4b-aff2-eec7395b9283",
@@ -221,14 +257,21 @@
           "pricePaid": "3750"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 6,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2024-02-01"
     },
     {
       "loanId": "HCZB8N2L8Z",
+      "borrowerId": "BRW-HCZB8N2L8Z",
       "loanName": "PIT 2024 8.25",
       "school": "Pitt",
       "loanStartDate": "2024-03-15",
@@ -238,7 +281,6 @@
       "graceYears": 1.5,
       "loanStatus": "",
       "feeWaiver": "none",
-      "borrowerId": "BRW-HCZB8N2L8Z",
       "events": [
         {
           "id": "82edf7e2-4e81-462b-8cec-e05384176ef4",
@@ -267,14 +309,21 @@
           "pricePaid": "2400"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 18,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2024-04-10"
     },
     {
       "loanId": "QVGKDMCI3U",
+      "borrowerId": "BRW-QVGKDMCI3U",
       "loanName": "UCLA 2025 7.30",
       "school": "UCLA",
       "loanStartDate": "2025-01-31",
@@ -284,7 +333,6 @@
       "graceYears": 0,
       "loanStatus": "",
       "feeWaiver": "all",
-      "borrowerId": "BRW-QVGKDMCI3U",
       "events": [],
       "ownershipLots": [
         {
@@ -294,14 +342,21 @@
           "purchaseDate": "2025-02-13"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 0,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2025-02-13"
     },
     {
       "loanId": "BZV8U2T3WU",
+      "borrowerId": "BRW-BZV8U2T3WU",
       "loanName": "USC 2025 7.90",
       "school": "USC",
       "loanStartDate": "2025-02-10",
@@ -311,7 +366,6 @@
       "graceYears": 0.5,
       "loanStatus": "",
       "feeWaiver": "none",
-      "borrowerId": "BRW-BZV8U2T3WU",
       "events": [
         {
           "id": "504705a2-9379-492b-bd94-e76a5aa2b99e",
@@ -328,14 +382,21 @@
           "purchaseDate": "2025-02-20"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 6,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2025-02-20"
     },
     {
       "loanId": "HXLBADG3MP",
+      "borrowerId": "BRW-HXLBADG3MP",
       "loanName": "PSU 2025 8.10",
       "school": "Penn State",
       "loanStartDate": "2025-03-01",
@@ -345,7 +406,6 @@
       "graceYears": 1,
       "loanStatus": "",
       "feeWaiver": "none",
-      "borrowerId": "BRW-HXLBADG3MP",
       "events": [],
       "ownershipLots": [
         {
@@ -355,14 +415,21 @@
           "purchaseDate": "2025-06-01"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 12,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2025-06-01"
     },
     {
       "loanId": "X0S5QZ4WHE",
+      "borrowerId": "BRW-X0S5QZ4WHE",
       "loanName": "NYU 2025 8.70",
       "school": "NYU",
       "loanStartDate": "2025-04-05",
@@ -372,7 +439,6 @@
       "graceYears": 1,
       "loanStatus": "",
       "feeWaiver": "none",
-      "borrowerId": "BRW-X0S5QZ4WHE",
       "events": [],
       "ownershipLots": [
         {
@@ -388,14 +454,21 @@
           "pricePaid": "4100"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 12,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2025-09-24"
     },
     {
       "loanId": "EOJYIFL33F",
+      "borrowerId": "BRW-EOJYIFL33F",
       "loanName": "PSU 2024 9.00",
       "school": "Penn State",
       "loanStartDate": "2025-01-01",
@@ -405,7 +478,6 @@
       "graceYears": 2,
       "loanStatus": "",
       "feeWaiver": "none",
-      "borrowerId": "BRW-EOJYIFL33F",
       "events": [],
       "ownershipLots": [
         {
@@ -415,14 +487,21 @@
           "purchaseDate": "2025-02-05"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 24,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2025-02-05"
     },
     {
       "loanId": "BHH0A15A7A",
+      "borrowerId": "BRW-BHH0A15A7A",
       "loanName": "USC 2025 7.90",
       "school": "USC",
       "loanStartDate": "2025-02-10",
@@ -432,7 +511,6 @@
       "graceYears": 0.5,
       "loanStatus": "",
       "feeWaiver": "none",
-      "borrowerId": "BRW-BHH0A15A7A",
       "events": [],
       "ownershipLots": [
         {
@@ -442,14 +520,21 @@
           "purchaseDate": "2025-02-10"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 6,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2025-02-10"
     },
     {
       "loanId": "O3MVZU9I0G",
+      "borrowerId": "BRW-O3MVZU9I0G",
       "loanName": "MICH 2024 12.00",
       "school": "Michigan",
       "loanStartDate": "2024-10-15",
@@ -459,7 +544,6 @@
       "graceYears": 0,
       "loanStatus": "",
       "feeWaiver": "none",
-      "borrowerId": "BRW-O3MVZU9I0G",
       "events": [],
       "ownershipLots": [
         {
@@ -469,14 +553,21 @@
           "purchaseDate": "2024-10-30"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 0,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2024-10-30"
     },
     {
       "loanId": "XYU7FKX6PV",
+      "borrowerId": "BRW-XYU7FKX6PV",
       "loanName": "CMU 2024 9.00",
       "school": "Carnegie Mellon",
       "loanStartDate": "2024-02-01",
@@ -486,7 +577,6 @@
       "graceYears": 1,
       "loanStatus": "",
       "feeWaiver": "none",
-      "borrowerId": "BRW-XYU7FKX6PV",
       "events": [
         {
           "id": "d4081441-bb1a-434f-a0f2-645488c6b7e7",
@@ -503,14 +593,21 @@
           "purchaseDate": "2024-02-02"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 12,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2024-02-02"
     },
     {
       "loanId": "DYRYYM33PL",
+      "borrowerId": "BRW-DYRYYM33PL",
       "loanName": "AMU 2024 8.50",
       "school": "Ave Maria University",
       "loanStartDate": "2024-06-04",
@@ -520,7 +617,6 @@
       "graceYears": 0.5,
       "loanStatus": "",
       "feeWaiver": "none",
-      "borrowerId": "BRW-DYRYYM33PL",
       "events": [
         {
           "id": "8ab9ae12-14ae-4aca-96a4-1ec37a0a880d",
@@ -537,14 +633,21 @@
           "purchaseDate": "2024-07-24"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 6,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2024-07-24"
     },
     {
       "loanId": "GXCZPI4VJC",
+      "borrowerId": "BRW-GXCZPI4VJC",
       "loanName": "MICH 2024 9.00",
       "school": "Michigan",
       "loanStartDate": "2024-07-31",
@@ -554,7 +657,6 @@
       "graceYears": 0.5,
       "loanStatus": "",
       "feeWaiver": "none",
-      "borrowerId": "BRW-GXCZPI4VJC",
       "events": [],
       "ownershipLots": [
         {
@@ -576,14 +678,21 @@
           "pricePaid": "1250"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 6,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2025-01-15"
     },
     {
       "loanId": "S8RIL31Z34",
+      "borrowerId": "BRW-S8RIL31Z34",
       "loanName": "MICH 2025 8.50",
       "school": "Michigan",
       "loanStartDate": "2025-03-20",
@@ -593,7 +702,6 @@
       "graceYears": 0.5,
       "loanStatus": "",
       "feeWaiver": "none",
-      "borrowerId": "BRW-S8RIL31Z34",
       "events": [
         {
           "id": "a5fecd9c-0d16-4b99-bdea-a09f88eb9d04",
@@ -610,14 +718,21 @@
           "purchaseDate": "2025-06-20"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 6,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2025-06-20"
     },
     {
       "loanId": "S4I46M5NFY",
+      "borrowerId": "BRW-S4I46M5NFY",
       "loanName": "NYU 2025 8.70",
       "school": "NYU",
       "loanStartDate": "2025-04-05",
@@ -627,7 +742,6 @@
       "graceYears": 1,
       "loanStatus": "",
       "feeWaiver": "none",
-      "borrowerId": "BRW-S4I46M5NFY",
       "events": [
         {
           "id": "d1d659f6-32dd-4b52-aa67-6e9df35198cb",
@@ -650,14 +764,21 @@
           "pricePaid": "4100"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 12,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2025-09-05"
     },
     {
       "loanId": "L5UUOEUJAU",
+      "borrowerId": "BRW-L5UUOEUJAU",
       "loanName": "CMU 2024 9.00",
       "school": "Carnegie Mellon",
       "loanStartDate": "2025-06-02",
@@ -667,7 +788,6 @@
       "graceYears": 1,
       "loanStatus": "",
       "feeWaiver": "none",
-      "borrowerId": "BRW-L5UUOEUJAU",
       "events": [],
       "ownershipLots": [
         {
@@ -683,14 +803,21 @@
           "pricePaid": "3000"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 12,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2025-06-03"
     },
     {
       "loanId": "48FUE6FARN",
+      "borrowerId": "BRW-48FUE6FARN",
       "loanName": "WCC 2014 5.00",
       "school": "Wyoming Catholic College",
       "loanStartDate": "2014-06-01",
@@ -700,7 +827,6 @@
       "graceYears": 4,
       "loanStatus": "",
       "feeWaiver": "none",
-      "borrowerId": "BRW-48FUE6FARN",
       "events": [],
       "ownershipLots": [
         {
@@ -710,14 +836,21 @@
           "purchaseDate": "2023-06-01"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 48,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2023-06-01"
     },
     {
       "loanId": "7Q75NE4HOQ",
+      "borrowerId": "BRW-7Q75NE4HOQ",
       "loanName": "WCC 2017 5.00",
       "school": "Wyoming Catholic College",
       "loanStartDate": "2017-01-01",
@@ -727,7 +860,6 @@
       "graceYears": 4,
       "loanStatus": "",
       "feeWaiver": "none",
-      "borrowerId": "BRW-7Q75NE4HOQ",
       "events": [],
       "ownershipLots": [
         {
@@ -737,14 +869,21 @@
           "purchaseDate": "2023-06-01"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 48,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2023-06-01"
     },
     {
       "loanId": "OKYTAVFDFD",
+      "borrowerId": "BRW-OKYTAVFDFD",
       "loanName": "WCC 2017 5.50",
       "school": "Wyoming Catholic College",
       "loanStartDate": "2017-01-01",
@@ -754,7 +893,6 @@
       "graceYears": 1,
       "loanStatus": "",
       "feeWaiver": "none",
-      "borrowerId": "BRW-OKYTAVFDFD",
       "events": [
         {
           "id": "a001aeeb-4602-4af4-8ea3-9f2900b25ac1",
@@ -771,14 +909,21 @@
           "purchaseDate": "2023-06-01"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 12,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2023-06-01"
     },
     {
       "loanId": "EA1WJNSLWQ",
+      "borrowerId": "BRW-EA1WJNSLWQ",
       "loanName": "WCC 2017 6.00",
       "school": "Wyoming Catholic College",
       "loanStartDate": "2017-01-01",
@@ -788,7 +933,6 @@
       "graceYears": 1,
       "loanStatus": "",
       "feeWaiver": "none",
-      "borrowerId": "BRW-EA1WJNSLWQ",
       "events": [
         {
           "id": "a001aeeb-4602-4af4-8ea3-9f2900b25ac1",
@@ -805,14 +949,21 @@
           "purchaseDate": "2023-06-01"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 12,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2023-06-01"
     },
     {
       "loanId": "NUQPMXEA16",
+      "borrowerId": "BRW-NUQPMXEA16",
       "loanName": "AMU 2026 9.00",
       "school": "Ave Maria University",
       "loanStartDate": "2026-01-01",
@@ -822,7 +973,6 @@
       "graceYears": 1,
       "loanStatus": "",
       "feeWaiver": "none",
-      "borrowerId": "BRW-NUQPMXEA16",
       "events": [],
       "ownershipLots": [
         {
@@ -832,14 +982,21 @@
           "purchaseDate": "2026-01-01"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 12,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2026-01-01"
     },
     {
       "loanId": "9R6J05WV61",
+      "borrowerId": "BRW-9R6J05WV61",
       "loanName": "AMU 2026 9.50",
       "school": "Ave Maria University",
       "loanStartDate": "2026-01-01",
@@ -849,7 +1006,6 @@
       "graceYears": 2,
       "loanStatus": "",
       "feeWaiver": "none",
-      "borrowerId": "BRW-9R6J05WV61",
       "events": [],
       "ownershipLots": [
         {
@@ -859,14 +1015,21 @@
           "purchaseDate": "2026-01-01"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 24,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2026-01-01"
     },
     {
       "loanId": "E8Y1OHGJ2N",
+      "borrowerId": "BRW-E8Y1OHGJ2N",
       "loanName": "AMU 2026 10.0",
       "school": "Ave Maria University",
       "loanStartDate": "2026-01-01",
@@ -876,7 +1039,6 @@
       "graceYears": 3,
       "loanStatus": "",
       "feeWaiver": "none",
-      "borrowerId": "BRW-E8Y1OHGJ2N",
       "events": [],
       "ownershipLots": [
         {
@@ -892,14 +1054,21 @@
           "pricePaid": "4500"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 36,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2026-01-01"
     },
     {
       "loanId": "VLBNT83R1O",
+      "borrowerId": "BRW-VLBNT83R1O",
       "loanName": "TTCH 2026 11.0",
       "school": "Texas Tech University",
       "loanStartDate": "2026-01-01",
@@ -909,7 +1078,6 @@
       "graceYears": 0.5,
       "loanStatus": "",
       "feeWaiver": "none",
-      "borrowerId": "BRW-VLBNT83R1O",
       "events": [],
       "ownershipLots": [
         {
@@ -919,14 +1087,21 @@
           "purchaseDate": "2026-01-01"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 6,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2026-01-01"
     },
     {
       "loanId": "P6LPESRPPP",
+      "borrowerId": "BRW-P6LPESRPPP",
       "loanName": "TTCH 2026 7.50",
       "school": "Texas Tech University",
       "loanStartDate": "2026-01-01",
@@ -936,7 +1111,6 @@
       "graceYears": 4,
       "loanStatus": "",
       "feeWaiver": "none",
-      "borrowerId": "BRW-P6LPESRPPP",
       "events": [],
       "ownershipLots": [
         {
@@ -952,14 +1126,21 @@
           "pricePaid": "2600"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 48,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2026-01-01"
     },
     {
       "loanId": "2SFLG3MJV9",
+      "borrowerId": "BRW-2SFLG3MJV9",
       "loanName": "TTCH 2026 9.50",
       "school": "Texas Tech University",
       "loanStartDate": "2026-01-01",
@@ -969,7 +1150,6 @@
       "graceYears": 0,
       "loanStatus": "",
       "feeWaiver": "none",
-      "borrowerId": "BRW-2SFLG3MJV9",
       "events": [],
       "ownershipLots": [
         {
@@ -979,14 +1159,21 @@
           "purchaseDate": "2026-01-01"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 0,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2026-01-01"
     },
     {
       "loanId": "6RVT87YOBY",
+      "borrowerId": "BRW-6RVT87YOBY",
       "loanName": "OSU 2026 8.90",
       "school": "Ohio State",
       "loanStartDate": "2026-01-01",
@@ -996,7 +1183,6 @@
       "graceYears": 1,
       "loanStatus": "",
       "feeWaiver": "none",
-      "borrowerId": "BRW-6RVT87YOBY",
       "events": [],
       "ownershipLots": [
         {
@@ -1006,14 +1192,21 @@
           "purchaseDate": "2026-01-01"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 12,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2026-01-01"
     },
     {
-      "loanId": "527063",
+      "loanId": "ZG6IDN",
+      "borrowerId": "10024044933",
       "loanName": "UAF 2025 10.11",
       "school": "UNIVERSITY OF ALASKA FAIRBANKS",
       "loanStartDate": "2025-01-22",
@@ -1023,7 +1216,6 @@
       "graceYears": 0,
       "loanStatus": "R",
       "feeWaiver": "none",
-      "borrowerId": "10024044933",
       "events": [],
       "ownershipLots": [
         {
@@ -1032,14 +1224,21 @@
           "purchaseDate": "2025-01-22"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 0,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2025-01-22"
     },
     {
-      "loanId": "522269",
+      "loanId": "29UFUT",
+      "borrowerId": "10069613923",
       "loanName": "NVC 2024 12.00",
       "school": "NORTHWEST VISTA COLLEGE",
       "loanStartDate": "2024-01-08",
@@ -1049,7 +1248,6 @@
       "graceYears": 0.5,
       "loanStatus": "R",
       "feeWaiver": "none",
-      "borrowerId": "10069613923",
       "events": [],
       "ownershipLots": [
         {
@@ -1058,14 +1256,21 @@
           "purchaseDate": "2024-01-08"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 6,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2024-01-08"
     },
     {
-      "loanId": "518044",
+      "loanId": "VG93SJ",
+      "borrowerId": "10089550919",
       "loanName": "TLU 2022 6.75",
       "school": "TEXAS LUTHERAN UNIVERSITY",
       "loanStartDate": "2022-06-15",
@@ -1075,7 +1280,6 @@
       "graceYears": 0.5,
       "loanStatus": "R",
       "feeWaiver": "none",
-      "borrowerId": "10089550919",
       "events": [],
       "ownershipLots": [
         {
@@ -1084,14 +1288,21 @@
           "purchaseDate": "2022-06-15"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 6,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2022-06-15"
     },
     {
-      "loanId": "518364",
+      "loanId": "FYJQHP",
+      "borrowerId": "10003874932",
       "loanName": "SEU 2022 3.25",
       "school": "SAINT EDWARDS UNIVERSITY",
       "loanStartDate": "2022-08-15",
@@ -1101,7 +1312,6 @@
       "graceYears": 0.5,
       "loanStatus": "R",
       "feeWaiver": "none",
-      "borrowerId": "10003874932",
       "events": [],
       "ownershipLots": [
         {
@@ -1110,14 +1320,21 @@
           "purchaseDate": "2022-08-15"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 6,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2022-08-15"
     },
     {
-      "loanId": "520027",
+      "loanId": "TOV03C",
+      "borrowerId": "10003874932",
       "loanName": "SEU 2023 8.75",
       "school": "SAINT EDWARDS UNIVERSITY",
       "loanStartDate": "2023-01-24",
@@ -1127,7 +1344,6 @@
       "graceYears": 0.5,
       "loanStatus": "R",
       "feeWaiver": "none",
-      "borrowerId": "10003874932",
       "events": [],
       "ownershipLots": [
         {
@@ -1136,14 +1352,21 @@
           "purchaseDate": "2023-01-24"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 6,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2023-01-24"
     },
     {
-      "loanId": "521629",
+      "loanId": "2NUS0U",
+      "borrowerId": "10003874932",
       "loanName": "SEU 2023 10.00",
       "school": "SAINT EDWARDS UNIVERSITY",
       "loanStartDate": "2023-09-27",
@@ -1153,7 +1376,6 @@
       "graceYears": 0.5,
       "loanStatus": "R",
       "feeWaiver": "none",
-      "borrowerId": "10003874932",
       "events": [],
       "ownershipLots": [
         {
@@ -1162,14 +1384,21 @@
           "purchaseDate": "2023-09-27"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 6,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2023-09-27"
     },
     {
-      "loanId": "522457",
+      "loanId": "2QEFG1",
+      "borrowerId": "10003874932",
       "loanName": "SEU 2024 10.25",
       "school": "SAINT EDWARDS UNIVERSITY",
       "loanStartDate": "2024-01-23",
@@ -1179,7 +1408,6 @@
       "graceYears": 0.5,
       "loanStatus": "R",
       "feeWaiver": "none",
-      "borrowerId": "10003874932",
       "events": [],
       "ownershipLots": [
         {
@@ -1188,14 +1416,21 @@
           "purchaseDate": "2024-01-23"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 6,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2024-01-23"
     },
     {
-      "loanId": "522770",
+      "loanId": "YOEOSZ",
+      "borrowerId": "10022982724",
       "loanName": "SEU 2024 11.00",
       "school": "SAINT EDWARDS UNIVERSITY",
       "loanStartDate": "2024-03-20",
@@ -1205,7 +1440,6 @@
       "graceYears": 0,
       "loanStatus": "R",
       "feeWaiver": "none",
-      "borrowerId": "10022982724",
       "events": [],
       "ownershipLots": [
         {
@@ -1214,14 +1448,21 @@
           "purchaseDate": "2024-03-20"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 0,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2024-03-20"
     },
     {
-      "loanId": "520696",
+      "loanId": "VDFKAF",
+      "borrowerId": "10065921775",
       "loanName": "UTT 2023 10.50",
       "school": "UNIVERSITY OF TEXAS AT TYLER",
       "loanStartDate": "2023-05-23",
@@ -1231,7 +1472,6 @@
       "graceYears": 0,
       "loanStatus": "R",
       "feeWaiver": "none",
-      "borrowerId": "10065921775",
       "events": [],
       "ownershipLots": [
         {
@@ -1240,14 +1480,21 @@
           "purchaseDate": "2023-05-23"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 0,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2023-05-23"
     },
     {
-      "loanId": "517571",
+      "loanId": "CBP9A2",
+      "borrowerId": "10054390079",
       "loanName": "UTT 2022 3.75",
       "school": "UNIVERSITY OF TEXAS AT TYLER",
       "loanStartDate": "2022-05-02",
@@ -1257,7 +1504,6 @@
       "graceYears": 0,
       "loanStatus": "R",
       "feeWaiver": "none",
-      "borrowerId": "10054390079",
       "events": [],
       "ownershipLots": [
         {
@@ -1266,14 +1512,21 @@
           "purchaseDate": "2022-05-02"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 0,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2022-05-02"
     },
     {
-      "loanId": "9999993",
+      "loanId": "VNRTPA",
+      "borrowerId": "10045989346",
       "loanName": "UTT 2021 5.50",
       "school": "UNIVERSITY OF TEXAS AT TYLER",
       "loanStartDate": "2021-08-31",
@@ -1283,7 +1536,6 @@
       "graceYears": 0,
       "loanStatus": "R",
       "feeWaiver": "none",
-      "borrowerId": "10045989346",
       "events": [],
       "ownershipLots": [
         {
@@ -1292,14 +1544,21 @@
           "purchaseDate": "2021-08-31"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 0,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2021-08-31"
     },
     {
-      "loanId": "519123",
+      "loanId": "BWN40C",
+      "borrowerId": "10013615876",
       "loanName": "UOK 2022 2.25",
       "school": "UNIVERSITY OF OKLAHOMA",
       "loanStartDate": "2022-09-23",
@@ -1309,7 +1568,6 @@
       "graceYears": 0.5,
       "loanStatus": "R",
       "feeWaiver": "none",
-      "borrowerId": "10013615876",
       "events": [],
       "ownershipLots": [
         {
@@ -1318,14 +1576,21 @@
           "purchaseDate": "2022-09-23"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 6,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2022-09-23"
     },
     {
-      "loanId": "518293",
+      "loanId": "J85P54",
+      "borrowerId": "10065298722",
       "loanName": "ACC 2022 9.25",
       "school": "AUSTIN COMMUNITY COLLEGE",
       "loanStartDate": "2022-09-19",
@@ -1335,7 +1600,6 @@
       "graceYears": 0.5,
       "loanStatus": "R",
       "feeWaiver": "none",
-      "borrowerId": "10065298722",
       "events": [],
       "ownershipLots": [
         {
@@ -1344,14 +1608,21 @@
           "purchaseDate": "2022-09-19"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 6,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2022-09-19"
     },
     {
-      "loanId": "521239",
+      "loanId": "VOWIHR",
+      "borrowerId": "10065298722",
       "loanName": "ACC 2023 12.00",
       "school": "AUSTIN COMMUNITY COLLEGE",
       "loanStartDate": "2023-08-17",
@@ -1361,7 +1632,6 @@
       "graceYears": 0,
       "loanStatus": "R",
       "feeWaiver": "none",
-      "borrowerId": "10065298722",
       "events": [],
       "ownershipLots": [
         {
@@ -1370,14 +1640,21 @@
           "purchaseDate": "2023-08-17"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 0,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2023-08-17"
     },
     {
-      "loanId": "518296",
+      "loanId": "BAUVTM",
+      "borrowerId": "10072287439",
       "loanName": "SWU 2022 3.25",
       "school": "SOUTHWESTERN UNIVERSITY",
       "loanStartDate": "2022-08-12",
@@ -1387,7 +1664,6 @@
       "graceYears": 0.5,
       "loanStatus": "R",
       "feeWaiver": "none",
-      "borrowerId": "10072287439",
       "events": [],
       "ownershipLots": [
         {
@@ -1396,14 +1672,21 @@
           "purchaseDate": "2022-08-12"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 6,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2022-08-12"
     },
     {
-      "loanId": "518783",
+      "loanId": "U9K7DW",
+      "borrowerId": "10089056287",
       "loanName": "UARK 2022 6.25",
       "school": "UNIVERSITY OF ARKANSAS",
       "loanStartDate": "2022-10-20",
@@ -1413,7 +1696,6 @@
       "graceYears": 0.5,
       "loanStatus": "G",
       "feeWaiver": "none",
-      "borrowerId": "10089056287",
       "events": [],
       "ownershipLots": [
         {
@@ -1422,14 +1704,21 @@
           "purchaseDate": "2022-10-20"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 6,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2022-10-20"
     },
     {
-      "loanId": "522417",
+      "loanId": "BH0MK4",
+      "borrowerId": "10039196131",
       "loanName": "BAY 2024 12.00",
       "school": "BAYLOR UNIVERSITY",
       "loanStartDate": "2024-02-26",
@@ -1439,7 +1728,6 @@
       "graceYears": 0.5,
       "loanStatus": "G",
       "feeWaiver": "none",
-      "borrowerId": "10039196131",
       "events": [],
       "ownershipLots": [
         {
@@ -1448,14 +1736,21 @@
           "purchaseDate": "2024-02-26"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 6,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2024-02-26"
     },
     {
-      "loanId": "526445",
+      "loanId": "VYMFGG",
+      "borrowerId": "10039196131",
       "loanName": "BAY 2024 12.00-2",
       "school": "BAYLOR UNIVERSITY",
       "loanStartDate": "2024-10-31",
@@ -1465,7 +1760,6 @@
       "graceYears": 0.5,
       "loanStatus": "G",
       "feeWaiver": "none",
-      "borrowerId": "10039196131",
       "events": [],
       "ownershipLots": [
         {
@@ -1475,14 +1769,21 @@
           "pricePaid": "7500"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 6,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2024-10-31"
     },
     {
-      "loanId": "521583",
+      "loanId": "TBA6OB",
+      "borrowerId": "10005323532",
       "loanName": "UCOK 2023 12.00",
       "school": "UNIVERSITY OF CENTRAL OKLAHOMA",
       "loanStartDate": "2023-09-15",
@@ -1492,7 +1793,6 @@
       "graceYears": 0.5,
       "loanStatus": "G",
       "feeWaiver": "none",
-      "borrowerId": "10005323532",
       "events": [],
       "ownershipLots": [
         {
@@ -1501,14 +1801,21 @@
           "purchaseDate": "2023-09-15"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 6,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2023-09-15"
     },
     {
-      "loanId": "522240",
+      "loanId": "S2I865",
+      "borrowerId": "10005323532",
       "loanName": "UCOK 2024 11.75",
       "school": "UNIVERSITY OF CENTRAL OKLAHOMA",
       "loanStartDate": "2024-01-23",
@@ -1518,7 +1825,6 @@
       "graceYears": 0,
       "loanStatus": "R",
       "feeWaiver": "none",
-      "borrowerId": "10005323532",
       "events": [],
       "ownershipLots": [
         {
@@ -1527,14 +1833,21 @@
           "purchaseDate": "2024-01-23"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 0,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2024-01-23"
     },
     {
-      "loanId": "9999995",
+      "loanId": "MMLIVU",
+      "borrowerId": "10022598831",
       "loanName": "UTI 2021 3.75",
       "school": "UNIVERSAL TECHNICAL INSTITUTE",
       "loanStartDate": "2021-11-18",
@@ -1544,7 +1857,6 @@
       "graceYears": 0.5,
       "loanStatus": "R",
       "feeWaiver": "none",
-      "borrowerId": "10022598831",
       "events": [],
       "ownershipLots": [
         {
@@ -1553,14 +1865,21 @@
           "purchaseDate": "2021-11-18"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 6,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2021-11-18"
     },
     {
-      "loanId": "518474",
+      "loanId": "GYZNL6",
+      "borrowerId": "10049860851",
       "loanName": "VPI 2022 3.75",
       "school": "VIRGINIA POLYTECHNIC INST & ST UNIV",
       "loanStartDate": "2022-08-15",
@@ -1570,7 +1889,6 @@
       "graceYears": 0.5,
       "loanStatus": "R",
       "feeWaiver": "none",
-      "borrowerId": "10049860851",
       "events": [],
       "ownershipLots": [
         {
@@ -1579,14 +1897,21 @@
           "purchaseDate": "2022-08-15"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 6,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2022-08-15"
     },
     {
-      "loanId": "518717",
+      "loanId": "0W5RA5",
+      "borrowerId": "10020487856",
       "loanName": "UTD 2022 2.25",
       "school": "UNIVERSITY OF TEXAS AT DALLAS",
       "loanStartDate": "2022-08-30",
@@ -1596,7 +1921,6 @@
       "graceYears": 0.5,
       "loanStatus": "R",
       "feeWaiver": "none",
-      "borrowerId": "10020487856",
       "events": [],
       "ownershipLots": [
         {
@@ -1605,14 +1929,21 @@
           "purchaseDate": "2022-08-30"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 6,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2022-08-30"
     },
     {
-      "loanId": "518345",
+      "loanId": "UK2978",
+      "borrowerId": "10047632725",
       "loanName": "SWU 2022 3.25-2",
       "school": "SOUTHWESTERN UNIVERSITY",
       "loanStartDate": "2022-08-12",
@@ -1622,7 +1953,6 @@
       "graceYears": 0,
       "loanStatus": "R",
       "feeWaiver": "none",
-      "borrowerId": "10047632725",
       "events": [],
       "ownershipLots": [
         {
@@ -1631,14 +1961,21 @@
           "purchaseDate": "2022-08-12"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 0,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2022-08-12"
     },
     {
-      "loanId": "521274",
+      "loanId": "A8ENR8",
+      "borrowerId": "10065686280",
       "loanName": "SEU 2023 12.00",
       "school": "SAINT EDWARDS UNIVERSITY",
       "loanStartDate": "2023-08-23",
@@ -1648,7 +1985,6 @@
       "graceYears": 0.5,
       "loanStatus": "R",
       "feeWaiver": "none",
-      "borrowerId": "10065686280",
       "events": [],
       "ownershipLots": [
         {
@@ -1657,14 +1993,21 @@
           "purchaseDate": "2023-08-23"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 6,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2023-08-23"
     },
     {
-      "loanId": "523317",
+      "loanId": "F8VS6G",
+      "borrowerId": "10062151213",
       "loanName": "TXSU 2024 11.25",
       "school": "TEXAS STATE UNIVERSITY",
       "loanStartDate": "2024-06-12",
@@ -1674,7 +2017,6 @@
       "graceYears": 0,
       "loanStatus": "R",
       "feeWaiver": "none",
-      "borrowerId": "10062151213",
       "events": [],
       "ownershipLots": [
         {
@@ -1683,14 +2025,21 @@
           "purchaseDate": "2024-06-12"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 0,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2024-06-12"
     },
     {
-      "loanId": "518779",
+      "loanId": "RR6JMX",
+      "borrowerId": "10043017855",
       "loanName": "UTA 2022 2.25",
       "school": "UNIVERSITY OF TEXAS AT ARLINGTON",
       "loanStartDate": "2022-08-29",
@@ -1700,7 +2049,6 @@
       "graceYears": 0.5,
       "loanStatus": "R",
       "feeWaiver": "none",
-      "borrowerId": "10043017855",
       "events": [],
       "ownershipLots": [
         {
@@ -1709,14 +2057,21 @@
           "purchaseDate": "2022-08-29"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 6,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2022-08-29"
     },
     {
-      "loanId": "9999989",
+      "loanId": "609N2U",
+      "borrowerId": "10084565237",
       "loanName": "TSTC 2022 8.25",
       "school": "TEXAS STATE TECHNICAL COLLEGE",
       "loanStartDate": "2022-04-06",
@@ -1726,7 +2081,6 @@
       "graceYears": 0,
       "loanStatus": "R",
       "feeWaiver": "none",
-      "borrowerId": "10084565237",
       "events": [],
       "ownershipLots": [
         {
@@ -1735,14 +2089,21 @@
           "purchaseDate": "2022-04-06"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 0,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2022-04-06"
     },
     {
-      "loanId": "526327",
+      "loanId": "5W2C13",
+      "borrowerId": "10038188426",
       "loanName": "UDVR 2024 10.86",
       "school": "UNIVERSITY OF DENVER",
       "loanStartDate": "2024-10-02",
@@ -1752,7 +2113,6 @@
       "graceYears": 0,
       "loanStatus": "R",
       "feeWaiver": "none",
-      "borrowerId": "10038188426",
       "events": [],
       "ownershipLots": [
         {
@@ -1761,14 +2121,21 @@
           "purchaseDate": "2024-10-02"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 0,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2024-10-02"
     },
     {
-      "loanId": "9999988",
+      "loanId": "K5DKHR",
+      "borrowerId": "10095873485",
       "loanName": "TLU 2021 3.25",
       "school": "TEXAS LUTHERAN UNIVERSITY",
       "loanStartDate": "2021-09-09",
@@ -1778,7 +2145,6 @@
       "graceYears": 0.5,
       "loanStatus": "R",
       "feeWaiver": "none",
-      "borrowerId": "10095873485",
       "events": [],
       "ownershipLots": [
         {
@@ -1787,14 +2153,21 @@
           "purchaseDate": "2021-09-09"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 6,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2021-09-09"
     },
     {
-      "loanId": "518724",
+      "loanId": "ZAQHDO",
+      "borrowerId": "10095873485",
       "loanName": "TLU 2022 2.25",
       "school": "TEXAS LUTHERAN UNIVERSITY",
       "loanStartDate": "2022-09-13",
@@ -1804,7 +2177,6 @@
       "graceYears": 0.5,
       "loanStatus": "R",
       "feeWaiver": "none",
-      "borrowerId": "10095873485",
       "events": [],
       "ownershipLots": [
         {
@@ -1813,14 +2185,21 @@
           "purchaseDate": "2022-09-13"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 6,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2022-09-13"
     },
     {
-      "loanId": "521205",
+      "loanId": "ABDQJK",
+      "borrowerId": "10095873485",
       "loanName": "TLU 2023 12.00",
       "school": "TEXAS LUTHERAN UNIVERSITY",
       "loanStartDate": "2023-09-14",
@@ -1830,7 +2209,6 @@
       "graceYears": 0.5,
       "loanStatus": "R",
       "feeWaiver": "none",
-      "borrowerId": "10095873485",
       "events": [],
       "ownershipLots": [
         {
@@ -1839,14 +2217,21 @@
           "purchaseDate": "2023-09-14"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 6,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2023-09-14"
     },
     {
-      "loanId": "524838",
+      "loanId": "PMFJCC",
+      "borrowerId": "10095873485",
       "loanName": "TLU 2024 12.00",
       "school": "TEXAS LUTHERAN UNIVERSITY",
       "loanStartDate": "2024-09-11",
@@ -1856,7 +2241,6 @@
       "graceYears": 0.5,
       "loanStatus": "R",
       "feeWaiver": "none",
-      "borrowerId": "10095873485",
       "events": [],
       "ownershipLots": [
         {
@@ -1865,14 +2249,21 @@
           "purchaseDate": "2024-09-11"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 6,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2024-09-11"
     },
     {
-      "loanId": "518351",
+      "loanId": "L3HDV3",
+      "borrowerId": "10049190955",
       "loanName": "TTU 2022 3.25",
       "school": "TEXAS TECH UNIVERSITY",
       "loanStartDate": "2022-08-22",
@@ -1882,7 +2273,6 @@
       "graceYears": 0.5,
       "loanStatus": "R",
       "feeWaiver": "none",
-      "borrowerId": "10049190955",
       "events": [],
       "ownershipLots": [
         {
@@ -1891,14 +2281,21 @@
           "purchaseDate": "2022-08-22"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 6,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2022-08-22"
     },
     {
-      "loanId": "9999999",
+      "loanId": "VJMPDI",
+      "borrowerId": "10007403009",
       "loanName": "RICE 2021 6.00",
       "school": "RICE UNIVERSITY",
       "loanStartDate": "2021-10-08",
@@ -1908,7 +2305,6 @@
       "graceYears": 0,
       "loanStatus": "R",
       "feeWaiver": "none",
-      "borrowerId": "10007403009",
       "events": [],
       "ownershipLots": [
         {
@@ -1917,14 +2313,21 @@
           "purchaseDate": "2021-10-08"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 0,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2021-10-08"
     },
     {
-      "loanId": "9999991",
+      "loanId": "EJJ6MT",
+      "borrowerId": "10053026257",
       "loanName": "TTU 20226.75",
       "school": "TEXAS TECH UNIVERSITY",
       "loanStartDate": "2022-04-08",
@@ -1934,7 +2337,6 @@
       "graceYears": 0.5,
       "loanStatus": "R",
       "feeWaiver": "none",
-      "borrowerId": "10053026257",
       "events": [],
       "ownershipLots": [
         {
@@ -1943,14 +2345,21 @@
           "purchaseDate": "2022-04-08"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 6,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2022-04-08"
     },
     {
-      "loanId": "9999997",
+      "loanId": "XQTLCE",
+      "borrowerId": "10018047240",
       "loanName": "RICE 2022 4.75",
       "school": "RICE UNIVERSITY",
       "loanStartDate": "2022-02-14",
@@ -1960,7 +2369,6 @@
       "graceYears": 0,
       "loanStatus": "R",
       "feeWaiver": "none",
-      "borrowerId": "10018047240",
       "events": [],
       "ownershipLots": [
         {
@@ -1969,14 +2377,21 @@
           "purchaseDate": "2022-02-14"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 0,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2022-02-14"
     },
     {
-      "loanId": "521210",
+      "loanId": "1Y1UPW",
+      "borrowerId": "10021728671",
       "loanName": "NUI 2023 12.00",
       "school": "NATIONAL UNIVERSITY OF IRELAND",
       "loanStartDate": "2023-09-12",
@@ -1986,7 +2401,6 @@
       "graceYears": 0,
       "loanStatus": "R",
       "feeWaiver": "none",
-      "borrowerId": "10021728671",
       "events": [],
       "ownershipLots": [
         {
@@ -1995,14 +2409,21 @@
           "purchaseDate": "2023-09-12"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 0,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2023-09-12"
     },
     {
-      "loanId": "521649",
+      "loanId": "AHM8RX",
+      "borrowerId": "10043052665",
       "loanName": "LTU 2023 9.75",
       "school": "LETOURNEAU UNIVERSITY",
       "loanStartDate": "2023-09-22",
@@ -2012,7 +2433,6 @@
       "graceYears": 0.5,
       "loanStatus": "R",
       "feeWaiver": "none",
-      "borrowerId": "10043052665",
       "events": [],
       "ownershipLots": [
         {
@@ -2021,14 +2441,21 @@
           "purchaseDate": "2023-09-22"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 6,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2023-09-22"
     },
     {
-      "loanId": "523505",
+      "loanId": "J8RI5Z",
+      "borrowerId": "10043052665",
       "loanName": "LTU 2024 12.00",
       "school": "LETOURNEAU UNIVERSITY",
       "loanStartDate": "2024-09-09",
@@ -2038,7 +2465,6 @@
       "graceYears": 0.5,
       "loanStatus": "R",
       "feeWaiver": "none",
-      "borrowerId": "10043052665",
       "events": [],
       "ownershipLots": [
         {
@@ -2047,14 +2473,21 @@
           "purchaseDate": "2024-09-09"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 6,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2024-09-09"
     },
     {
-      "loanId": "525950",
+      "loanId": "5VBEOU",
+      "borrowerId": "10043600513",
       "loanName": "UTD 2024 7.11",
       "school": "UNIVERSITY OF TEXAS AT DALLAS",
       "loanStartDate": "2024-09-18",
@@ -2064,7 +2497,6 @@
       "graceYears": 0.5,
       "loanStatus": "R",
       "feeWaiver": "none",
-      "borrowerId": "10043600513",
       "events": [],
       "ownershipLots": [
         {
@@ -2073,14 +2505,21 @@
           "purchaseDate": "2024-09-18"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 6,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2024-09-18"
     },
     {
-      "loanId": "9999990",
+      "loanId": "92CWY9",
+      "borrowerId": "10079498964",
       "loanName": "PCC 2022 3.25",
       "school": "PARKER COLLEGE OF CHIROPRACTIC",
       "loanStartDate": "2022-03-03",
@@ -2090,7 +2529,6 @@
       "graceYears": 0,
       "loanStatus": "R",
       "feeWaiver": "none",
-      "borrowerId": "10079498964",
       "events": [],
       "ownershipLots": [
         {
@@ -2099,14 +2537,21 @@
           "purchaseDate": "2022-03-03"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 0,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2022-03-03"
     },
     {
-      "loanId": "9999992",
+      "loanId": "Z9WF5J",
+      "borrowerId": "10046477506",
       "loanName": "WTAM 2021 5.25",
       "school": "WEST TEXAS A&M UNIVERSITYTY",
       "loanStartDate": "2021-08-20",
@@ -2116,7 +2561,6 @@
       "graceYears": 0.5,
       "loanStatus": "R",
       "feeWaiver": "none",
-      "borrowerId": "10046477506",
       "events": [],
       "ownershipLots": [
         {
@@ -2125,14 +2569,21 @@
           "purchaseDate": "2021-08-20"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 6,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2021-08-20"
     },
     {
-      "loanId": "9999994",
+      "loanId": "FBINDV",
+      "borrowerId": "10036738094",
       "loanName": "LUNO 2022 5.25",
       "school": "LOYOLA UNIVERSITY NEW ORLEANS",
       "loanStartDate": "2022-02-09",
@@ -2142,7 +2593,6 @@
       "graceYears": 0,
       "loanStatus": "R",
       "feeWaiver": "none",
-      "borrowerId": "10036738094",
       "events": [],
       "ownershipLots": [
         {
@@ -2151,14 +2601,21 @@
           "purchaseDate": "2022-02-09"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 0,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2022-02-09"
     },
     {
-      "loanId": "518362",
+      "loanId": "BPG7G6",
+      "borrowerId": "10065477287",
       "loanName": "TTU 2022 2.25",
       "school": "TEXAS TECH UNIVERSITY",
       "loanStartDate": "2022-08-05",
@@ -2168,7 +2625,6 @@
       "graceYears": 0.5,
       "loanStatus": "R",
       "feeWaiver": "none",
-      "borrowerId": "10065477287",
       "events": [],
       "ownershipLots": [
         {
@@ -2177,14 +2633,21 @@
           "purchaseDate": "2022-08-05"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 6,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2022-08-05"
     },
     {
-      "loanId": "525968",
+      "loanId": "T38CCJ",
+      "borrowerId": "10011197578",
       "loanName": "UTA 2024 8.511",
       "school": "UNIVERSITY OF TEXAS AT AUSTIN",
       "loanStartDate": "2024-09-25",
@@ -2194,7 +2657,6 @@
       "graceYears": 0,
       "loanStatus": "R",
       "feeWaiver": "none",
-      "borrowerId": "10011197578",
       "events": [],
       "ownershipLots": [
         {
@@ -2203,14 +2665,21 @@
           "purchaseDate": "2024-09-25"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 0,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2024-09-25"
     },
     {
-      "loanId": "526278",
+      "loanId": "ZP2FSA",
+      "borrowerId": "10095347558",
       "loanName": "SHSU 2024 11.11",
       "school": "SAM HOUSTON STATE UNIVERSITY",
       "loanStartDate": "2024-09-16",
@@ -2220,7 +2689,6 @@
       "graceYears": 0.5,
       "loanStatus": "S",
       "feeWaiver": "none",
-      "borrowerId": "10095347558",
       "events": [],
       "ownershipLots": [
         {
@@ -2229,14 +2697,21 @@
           "purchaseDate": "2024-09-16"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 6,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2024-09-16"
     },
     {
-      "loanId": "518303",
+      "loanId": "NUEVT3",
+      "borrowerId": "10001476542",
       "loanName": "TTU 2022 5.25",
       "school": "TEXAS TECH UNIVERSITY",
       "loanStartDate": "2022-08-15",
@@ -2246,7 +2721,6 @@
       "graceYears": 0.5,
       "loanStatus": "R",
       "feeWaiver": "none",
-      "borrowerId": "10001476542",
       "events": [],
       "ownershipLots": [
         {
@@ -2255,14 +2729,21 @@
           "purchaseDate": "2022-08-15"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 6,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2022-08-15"
     },
     {
-      "loanId": "526530",
+      "loanId": "XPU0P4",
+      "borrowerId": "10046128794",
       "loanName": "TXSU 2024 10.86",
       "school": "TEXAS STATE UNIVERSITY",
       "loanStartDate": "2024-10-18",
@@ -2272,7 +2753,6 @@
       "graceYears": 0,
       "loanStatus": "R",
       "feeWaiver": "none",
-      "borrowerId": "10046128794",
       "events": [],
       "ownershipLots": [
         {
@@ -2281,14 +2761,21 @@
           "purchaseDate": "2024-10-18"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 0,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2024-10-18"
     },
     {
-      "loanId": "518489",
+      "loanId": "7FLYUV",
+      "borrowerId": "10064118870",
       "loanName": "UARK 2022 6.75",
       "school": "UNIVERSITY OF ARKANSAS",
       "loanStartDate": "2022-10-05",
@@ -2298,7 +2785,6 @@
       "graceYears": 0,
       "loanStatus": "R",
       "feeWaiver": "none",
-      "borrowerId": "10064118870",
       "events": [],
       "ownershipLots": [
         {
@@ -2307,14 +2793,21 @@
           "purchaseDate": "2022-10-05"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 0,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2022-10-05"
     },
     {
-      "loanId": "518143",
+      "loanId": "B812T4",
+      "borrowerId": "10094226388",
       "loanName": "TTU 2022 8.25",
       "school": "TEXAS TECH UNIVERSITY",
       "loanStartDate": "2022-08-15",
@@ -2324,7 +2817,6 @@
       "graceYears": 0.5,
       "loanStatus": "R",
       "feeWaiver": "none",
-      "borrowerId": "10094226388",
       "events": [],
       "ownershipLots": [
         {
@@ -2333,14 +2825,21 @@
           "purchaseDate": "2022-08-15"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 6,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2022-08-15"
     },
     {
-      "loanId": "521376",
+      "loanId": "AOQZOU",
+      "borrowerId": "10045956352",
       "loanName": "TAMU 2023 12.00",
       "school": "TEXAS A&M UNIVERSITY",
       "loanStartDate": "2023-08-31",
@@ -2350,7 +2849,6 @@
       "graceYears": 0,
       "loanStatus": "R",
       "feeWaiver": "none",
-      "borrowerId": "10045956352",
       "events": [],
       "ownershipLots": [
         {
@@ -2359,14 +2857,21 @@
           "purchaseDate": "2023-08-31"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 0,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2023-08-31"
     },
     {
-      "loanId": "519161",
+      "loanId": "ECDWK2",
+      "borrowerId": "10054004810",
       "loanName": "TAMU 2022 2.25",
       "school": "TEXAS A&M UNIVERSITY",
       "loanStartDate": "2022-11-09",
@@ -2376,7 +2881,6 @@
       "graceYears": 0,
       "loanStatus": "R",
       "feeWaiver": "none",
-      "borrowerId": "10054004810",
       "events": [],
       "ownershipLots": [
         {
@@ -2385,14 +2889,21 @@
           "purchaseDate": "2022-11-09"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 0,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2022-11-09"
     },
     {
-      "loanId": "519792",
+      "loanId": "RBMEKI",
+      "borrowerId": "10037592729",
       "loanName": "TXSU 2022 3.25",
       "school": "TEXAS STATE UNIVERSITY",
       "loanStartDate": "2022-11-29",
@@ -2402,7 +2913,6 @@
       "graceYears": 0.5,
       "loanStatus": "S",
       "feeWaiver": "none",
-      "borrowerId": "10037592729",
       "events": [],
       "ownershipLots": [
         {
@@ -2411,14 +2921,21 @@
           "purchaseDate": "2022-11-29"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 6,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2022-11-29"
     },
     {
-      "loanId": "522311",
+      "loanId": "MSD6SE",
+      "borrowerId": "10037592729",
       "loanName": "TXSU 2024 12.00",
       "school": "TEXAS STATE UNIVERSITY",
       "loanStartDate": "2024-01-24",
@@ -2428,7 +2945,6 @@
       "graceYears": 0.5,
       "loanStatus": "S",
       "feeWaiver": "none",
-      "borrowerId": "10037592729",
       "events": [],
       "ownershipLots": [
         {
@@ -2437,14 +2953,21 @@
           "purchaseDate": "2024-01-24"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 6,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2024-01-24"
     },
     {
-      "loanId": "518375",
+      "loanId": "9OAPNM",
+      "borrowerId": "10064909773",
       "loanName": "TXSU 2022 5.25",
       "school": "TEXAS STATE UNIVERSITY",
       "loanStartDate": "2022-09-29",
@@ -2454,7 +2977,6 @@
       "graceYears": 0,
       "loanStatus": "R",
       "feeWaiver": "none",
-      "borrowerId": "10064909773",
       "events": [],
       "ownershipLots": [
         {
@@ -2463,14 +2985,21 @@
           "purchaseDate": "2022-09-29"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 0,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2022-09-29"
     },
     {
-      "loanId": "517801",
+      "loanId": "USBRPC",
+      "borrowerId": "10004778926",
       "loanName": "TXSU 2022 6.00",
       "school": "TEXAS STATE UNIVERSITY",
       "loanStartDate": "2022-06-08",
@@ -2480,7 +3009,6 @@
       "graceYears": 0,
       "loanStatus": "R",
       "feeWaiver": "none",
-      "borrowerId": "10004778926",
       "events": [],
       "ownershipLots": [
         {
@@ -2489,14 +3017,21 @@
           "purchaseDate": "2022-06-08"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 0,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2022-06-08"
     },
     {
-      "loanId": "9999998",
+      "loanId": "OJ79RE",
+      "borrowerId": "10011455474",
       "loanName": "FLSL 2021 2.25",
       "school": "FULL SAIL REAL WORLD EDUCATION",
       "loanStartDate": "2021-10-05",
@@ -2506,7 +3041,6 @@
       "graceYears": 0,
       "loanStatus": "R",
       "feeWaiver": "none",
-      "borrowerId": "10011455474",
       "events": [],
       "ownershipLots": [
         {
@@ -2515,14 +3049,21 @@
           "purchaseDate": "2021-10-05"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 0,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2021-10-05"
     },
     {
-      "loanId": "517910",
+      "loanId": "0YJKXZ",
+      "borrowerId": "10011455474",
       "loanName": "FLSL 2022 7.75",
       "school": "FULL SAIL REAL WORLD EDUCATION",
       "loanStartDate": "2022-05-26",
@@ -2532,7 +3073,6 @@
       "graceYears": 0,
       "loanStatus": "R",
       "feeWaiver": "none",
-      "borrowerId": "10011455474",
       "events": [],
       "ownershipLots": [
         {
@@ -2541,14 +3081,21 @@
           "purchaseDate": "2022-05-26"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 0,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2022-05-26"
     },
     {
-      "loanId": "519653",
+      "loanId": "14C9NG",
+      "borrowerId": "10011455474",
       "loanName": "FLSL 2022 5.25",
       "school": "FULL SAIL REAL WORLD EDUCATION",
       "loanStartDate": "2022-11-30",
@@ -2558,7 +3105,6 @@
       "graceYears": 0,
       "loanStatus": "R",
       "feeWaiver": "none",
-      "borrowerId": "10011455474",
       "events": [],
       "ownershipLots": [
         {
@@ -2567,14 +3113,21 @@
           "purchaseDate": "2022-11-30"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 0,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2022-11-30"
     },
     {
-      "loanId": "520769",
+      "loanId": "B7K3S8",
+      "borrowerId": "10011455474",
       "loanName": "FLSL 2023 10.00",
       "school": "FULL SAIL REAL WORLD EDUCATION",
       "loanStartDate": "2023-08-09",
@@ -2584,23 +3137,30 @@
       "graceYears": 0,
       "loanStatus": "R",
       "feeWaiver": "none",
-      "borrowerId": "10011455474",
       "events": [],
       "ownershipLots": [
         {
-          "user": "market",
+          "user": "john",
           "pct": 1,
-          "purchaseDate": "2023-08-09"
+          "purchaseDate": "2023-08-20",
+          "pricePaid": 14250
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 0,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2023-08-09"
     },
     {
-      "loanId": "518298",
+      "loanId": "HPFNT6",
+      "borrowerId": "10016108287",
       "loanName": "EMBY 2022 3.25",
       "school": "EMBRY-RIDDLE AERONAUTICAL UNIVERSITY",
       "loanStartDate": "2022-09-07",
@@ -2610,7 +3170,6 @@
       "graceYears": 0.5,
       "loanStatus": "R",
       "feeWaiver": "none",
-      "borrowerId": "10016108287",
       "events": [],
       "ownershipLots": [
         {
@@ -2619,14 +3178,21 @@
           "purchaseDate": "2022-09-07"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 6,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2022-09-07"
     },
     {
-      "loanId": "519730",
+      "loanId": "LEYQ4U",
+      "borrowerId": "10016108287",
       "loanName": "EMBY 2023 3.25",
       "school": "EMBRY-RIDDLE AERONAUTICAL UNIVERSITY",
       "loanStartDate": "2023-01-10",
@@ -2636,7 +3202,6 @@
       "graceYears": 0.5,
       "loanStatus": "R",
       "feeWaiver": "none",
-      "borrowerId": "10016108287",
       "events": [],
       "ownershipLots": [
         {
@@ -2645,14 +3210,21 @@
           "purchaseDate": "2023-01-10"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 6,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2023-01-10"
     },
     {
-      "loanId": "518438",
+      "loanId": "CMW9GD",
+      "borrowerId": "10095253422",
       "loanName": "HSU 2022 2.25",
       "school": "HARDIN-SIMMONS UNIVERSITY",
       "loanStartDate": "2022-09-13",
@@ -2662,7 +3234,6 @@
       "graceYears": 0.5,
       "loanStatus": "R",
       "feeWaiver": "none",
-      "borrowerId": "10095253422",
       "events": [],
       "ownershipLots": [
         {
@@ -2671,14 +3242,21 @@
           "purchaseDate": "2022-09-13"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 6,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2022-09-13"
     },
     {
-      "loanId": "518236",
+      "loanId": "C81FYI",
+      "borrowerId": "10037176236",
       "loanName": "TTU 2022 3.75",
       "school": "TEXAS TECH UNIVERSITY",
       "loanStartDate": "2022-08-15",
@@ -2688,7 +3266,6 @@
       "graceYears": 0.5,
       "loanStatus": "R",
       "feeWaiver": "none",
-      "borrowerId": "10037176236",
       "events": [],
       "ownershipLots": [
         {
@@ -2697,14 +3274,21 @@
           "purchaseDate": "2022-08-15"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 6,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2022-08-15"
     },
     {
-      "loanId": "526106",
+      "loanId": "45SWFI",
+      "borrowerId": "10094211186",
       "loanName": "SWU 2024 11.86",
       "school": "SOUTHWESTERN UNIVERSITY",
       "loanStartDate": "2024-09-06",
@@ -2714,7 +3298,6 @@
       "graceYears": 0.5,
       "loanStatus": "R",
       "feeWaiver": "none",
-      "borrowerId": "10094211186",
       "events": [],
       "ownershipLots": [
         {
@@ -2723,14 +3306,21 @@
           "purchaseDate": "2024-09-06"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 6,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2024-09-06"
     },
     {
-      "loanId": "518076",
+      "loanId": "TBIK1L",
+      "borrowerId": "10015853982",
       "loanName": "UNTX 2022 3.75",
       "school": "UNIVERSITY OF NORTH TEXAS",
       "loanStartDate": "2022-06-30",
@@ -2740,7 +3330,6 @@
       "graceYears": 0,
       "loanStatus": "R",
       "feeWaiver": "none",
-      "borrowerId": "10015853982",
       "events": [],
       "ownershipLots": [
         {
@@ -2749,14 +3338,21 @@
           "purchaseDate": "2022-06-30"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 0,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2022-06-30"
     },
     {
-      "loanId": "518246",
+      "loanId": "J80SON",
+      "borrowerId": "10015853982",
       "loanName": "UNTX 2022 3.75-2",
       "school": "UNIVERSITY OF NORTH TEXAS",
       "loanStartDate": "2022-09-28",
@@ -2766,7 +3362,6 @@
       "graceYears": 0,
       "loanStatus": "R",
       "feeWaiver": "none",
-      "borrowerId": "10015853982",
       "events": [],
       "ownershipLots": [
         {
@@ -2775,10 +3370,16 @@
           "purchaseDate": "2022-09-28"
         }
       ],
-      "dateOnSystem": "",
-      "origPrincipalBal": 0,
-      "originalSchoolName": "",
-      "mosGraceElig": 0,
+      "ownership": {
+        "unit": "percent",
+        "step": 5,
+        "allocations": [
+          {
+            "user": "Market",
+            "percent": 100
+          }
+        ]
+      },
       "purchaseDate": "2022-09-28"
     }
   ]
