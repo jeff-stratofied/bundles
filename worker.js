@@ -135,6 +135,27 @@ async function handleFetch(request, env) {
       return withCORS(new Response("Method not allowed", { status: 405 }), origin);
     }
 
+// BUNDLES
+if (url.pathname === "/bundles") {
+  const bundlesPath = env.GITHUB_BUNDLES_PATH || "src/data/bundles.json";
+  if (request.method === "GET") {
+    const { content, sha } = await loadFromGitHub(env, bundlesPath);
+    return withCORS(noStoreJson({ ...content, sha }), origin);
+  }
+  if (request.method === "POST") {
+    const body = await request.json();
+    const newSha = await saveToGitHub(
+      env,
+      bundlesPath,
+      JSON.stringify(body, null, 2),
+      body.sha,
+      "Update bundles via app"
+    );
+    return withCORS(noStoreJson({ success: true, sha: newSha }), origin);
+  }
+  return withCORS(new Response("Method not allowed", { status: 405 }), origin);
+}
+
     // PLATFORM CONFIG
     if (url.pathname === "/platformConfig") {
       const configPath = env.GITHUB_CONFIG_PATH || "data/platformConfig.json";

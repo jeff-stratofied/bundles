@@ -162,7 +162,7 @@ export function BundlesContent() {
             </p>
           </div>
           <button type="button" style={S.btn('#2563eb')} onClick={() => openNewBundle('any')}>
-  + New Bundle
+  + New Package
 </button>
         </div>
 
@@ -190,7 +190,7 @@ export function BundlesContent() {
             )}
 
             <div style={S.sectionTitle}>
-              My Bundles ({myBundles.length})
+              My Packages ({myBundles.length})
             </div>
 
             {myBundles.length === 0 && (
@@ -198,7 +198,7 @@ export function BundlesContent() {
                 ...S.card, textAlign: 'center', padding: '48px 24px',
                 color: '#64748b', fontSize: 14,
               }}>
-                No bundles yet. Click <b>+ New Bundle</b> to get started.
+                No packages yet. Click <b>+ New Package</b> to get started.
               </div>
             )}
 
@@ -221,7 +221,7 @@ export function BundlesContent() {
         <DrawerShell
           open={builderOpen}
           onClose={() => setBuilderOpen(false)}
-          title={editingBundle ? `Edit: ${editingBundle.bundleName}` : 'New Bundle'}
+          title={editingBundle ? `Edit: ${editingBundle.bundleName}` : 'New Package'}
           subTitle="Select a strategy, pick loans, and set your asking price."
           width={780}
           headerActions={
@@ -380,20 +380,20 @@ export function BundlesContent() {
             <div>
               <div style={{ ...S.card, marginBottom: 12 }}>
                 <div style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', letterSpacing: 1, marginBottom: 12, textTransform: 'uppercase' }}>
-                  Bundle Stats — {selectedLoans.length} loan{selectedLoans.length !== 1 ? 's' : ''} selected
+                  Package Stats — {selectedLoans.length} loan{selectedLoans.length !== 1 ? 's' : ''} selected
                 </div>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 12, marginBottom: 12 }}>
                 <StatPill label="Remaining Bal" value={fmt$(stats.totalPar)} />
                   <StatPill label="Wtd Rate" value={fmtPct(stats.weightedRate)} />
                   <StatPill label="WAL" value={`${stats.bundleWAL.toFixed(1)} yrs`} />
-                  <StatPill label="Bundle NPV" value={fmt$(stats.bundleNPV)} color="#2563eb" />
+                  <StatPill label="Package NPV" value={fmt$(stats.bundleNPV)} color="#2563eb" />
                   <StatPill label="Schools" value={String(stats.schoolCount)} />
                   <StatPill label="Loans" value={String(selectedLoans.length)} />
                 </div>
                 <RiskMiniBar riskMix={stats.riskMix} />
                 <div style={{ display: 'flex', gap: 8, marginTop: 6, fontSize: 10, color: '#64748b' }}>
                   {Object.entries(stats.riskMix).map(([tier, count]) => (
-                    <span key={tier}>{tier}: {count}</span>
+                    <span key={tier}>{tier}: {count as number}</span>
                   ))}
                 </div>
               </div>
@@ -533,12 +533,12 @@ export function BundlesContent() {
 
               <div style={S.card}>
                 <div style={{ fontSize: 11, fontWeight: 700, color: '#94a3b8', letterSpacing: 1, marginBottom: 12, textTransform: 'uppercase' }}>
-                  Bundle Details
+                  Package Details
                 </div>
 
                 <div style={{ marginBottom: 10 }}>
                   <label style={{ fontSize: 12, fontWeight: 600, color: '#475569', display: 'block', marginBottom: 4 }}>
-                    Bundle Name
+                    Package Name
                   </label>
                   <input
                     type="text"
@@ -629,7 +629,7 @@ export function BundlesContent() {
     fontSize: 12,
     color: '#475569',
   }}>
-    This bundle will be listed publicly for any investor.
+    This package will be listed publicly for any investor.
   </div>
 )}
 
@@ -690,7 +690,7 @@ function BundleCard({
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(6, auto)', gap: '0 24px', marginBottom: 8 }}>
   <StatPill label="Asking Price" value={fmt$(bundle.askingPrice)} color="#2563eb" />
   <StatPill label="Par Value" value={fmt$(bundle.totalPar)} />
-  <StatPill label="Bundle NPV" value={fmt$(bundle.bundleNPV)} />
+  <StatPill label="Package NPV" value={fmt$(bundle.bundleNPV)} />
   <StatPill
     label={
       bundle.askingPremiumPct > 0

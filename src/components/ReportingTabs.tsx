@@ -11,7 +11,7 @@ const tabs: { key: ReportingTab; label: string }[] = [
   { key: 'marketplace', label: 'Marketplace' },
   { key: 'holdings', label: 'My Holdings' },
   { key: 'valuations', label: 'Loan Valuations' },
-  { key: 'bundles', label: 'Bundles' },
+  { key: 'bundles', label: 'Packages' },
   { key: 'statements', label: 'Statements' },
 ]
 

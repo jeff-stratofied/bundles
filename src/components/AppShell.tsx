@@ -8,7 +8,7 @@ const NAV_ITEMS = [
   { icon: 'fa-chart-bar',    label: 'Reporting',   active: true  },
   { icon: 'fa-shopping-cart',label: 'Marketplace', active: false },
   { icon: 'fa-wallet',       label: 'Wallet',      active: false },
-  { icon: 'fa-layer-group',  label: 'Bundles',     active: false, route: '/bundles' },
+  { icon: 'fa-layer-group',  label: 'Packages',     active: false, route: '/bundles' },
   { icon: 'fa-history',      label: 'History',     active: false },
 ]
 

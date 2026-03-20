@@ -77,7 +77,7 @@ export const BUNDLE_STRATEGIES: StrategyDef[] = [
   },
   {
     key: 'custom',
-    label: 'Custom Bundle',
+    label: 'Custom Package',
     description: 'Manually select any loans from your portfolio. Set your own pricing.',
     pricingBias: 'par',
     defaultPremiumPct: 0,
