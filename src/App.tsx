@@ -7,6 +7,7 @@ import RoiDetailPage from './pages/RoiDetailPage'
 import LoanValuationPage from './pages/LoanValuationPage'
 import BundlesPage from './pages/BundlesPage'
 import StatementsPage from './pages/StatementsPage'
+import AdminPage from './pages/AdminPage'
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           <Route path="*" element={<Navigate to="/" replace />} />
           <Route path="/bundles" element={<BundlesPage />} />
           <Route path="/statements" element={<StatementsPage />} />
+          <Route path="/admin" element={<AdminPage />} />
         </Routes>
       </BrowserRouter>
     </UserProvider>

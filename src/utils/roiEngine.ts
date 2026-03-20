@@ -414,8 +414,16 @@ export function getLoanMaturityDate(loan: RoiLoan): Date | null {
 
 export function deriveLoansWithRoi(formattedLoans: any[]): any[] {
   return formattedLoans.map(l => {
-    const rawAmort = buildAmortSchedule(l)
     const amortSchedule = (() => {
+      const existing = l.amort?.schedule
+    
+      // ✅ Use existing amort if present (this includes fees)
+      if (Array.isArray(existing) && existing.length > 0) {
+        return existing
+      }
+    
+      // ⚠️ Fallback only if missing
+      const rawAmort = buildAmortSchedule(l)
       const out: any[] = []
       for (const r of rawAmort) {
         out.push(r)

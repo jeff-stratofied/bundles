@@ -125,7 +125,7 @@ export default function StatementsPage() {
   return (
     <AppShell>
       <div style={{ padding: '0 0 32px', background: '#f4f7f8', minHeight: '100%' }}>
-        <div style={{ width: 'calc(100% - 32px)', margin: '0 16px' }}>
+        <div style={{ width: 'calc(100% - 32px)', margin: '0 0px' }}>
           <ReportingTabs activeTab="statements" />
 
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 16 }}>

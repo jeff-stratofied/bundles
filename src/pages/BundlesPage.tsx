@@ -158,7 +158,7 @@ export function BundlesContent() {
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 8 }}>
           <div>
             <p style={{ margin: 0, fontSize: 13, color: '#64748b' }}>
-              Package your loans into bundles and offer them to other investors.
+              Package your loans together based on a strategy or build your own and offer them to others.
             </p>
           </div>
           <button type="button" style={S.btn('#2563eb')} onClick={() => openNewBundle('any')}>

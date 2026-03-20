@@ -4,7 +4,7 @@ import { useUser } from '../context/UserContext'
 import type { UserId } from '../context/UserContext'
 
 const NAV_ITEMS = [
-  { icon: 'fa-home',         label: 'Home',        active: false, href: 'https://jeff-stratofied.github.io/bundles/admin.html' },
+  { icon: 'fa-home', label: 'Home', active: false, route: '/admin' },
   { icon: 'fa-chart-bar',    label: 'Reporting',   active: true  },
   { icon: 'fa-shopping-cart',label: 'Marketplace', active: false },
   { icon: 'fa-wallet',       label: 'Wallet',      active: false },

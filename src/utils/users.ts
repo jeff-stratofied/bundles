@@ -1,3 +1,5 @@
+import platformConfig from '../data/platformConfig.json'
+
 type UserRecord = {
   id: string
   name: string
@@ -7,17 +9,11 @@ type UserRecord = {
 
 export let USERS: Record<string, UserRecord> = {}
 
-export async function loadUsers(
-  backendUrl = 'https://bundles-api.jeff-263.workers.dev'
-) {
+export async function loadUsers() {
   try {
-    const res = await fetch(`${backendUrl}/platformConfig`, { cache: 'no-store' })
-    if (!res.ok) throw new Error(`platformConfig fetch failed: ${res.status}`)
-
-    const data = await res.json()
-
     USERS = {}
-    ;(data.users || []).forEach((u: any) => {
+
+    ;(platformConfig.users || []).forEach((u: any) => {
       if (u.id && u.active !== false) {
         USERS[u.id] = {
           id: u.id,

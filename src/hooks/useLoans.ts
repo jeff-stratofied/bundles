@@ -12,6 +12,9 @@ import {
 import schoolTiersJson from '../data/schoolTiers.json'
 import valuationCurvesJson from '../data/valuationCurves.json'
 
+import platformConfig from '../data/platformConfig.json'
+import { loadUsers } from '../utils/users'
+
 const API_BASE = 'https://bundles-api.jeff-263.workers.dev'
 
 const LOANS_URL = `${API_BASE}/loans`
@@ -269,9 +272,49 @@ function normalizeLoan(raw: any, index: number, userId: string): Loan | null {
     loanStartDate,
     purchaseDate,
     events,
+    feeConfig: platformConfig.fees,
+    userId,
   }
 
+
+
   const schedule = buildAmortSchedule(loanCore)
+
+  const firstOwnedRow = schedule.find(r => r.isOwned)
+  const firstFeeRow = schedule.find(r => Number(r.feeThisMonth || 0) > 0)
+  
+  console.log('LIVE FEE CHECK', {
+    userId,
+    loanId,
+    purchaseDate,
+    loanStartDate,
+    feeConfig: platformConfig?.fees,
+    firstOwnedRow: firstOwnedRow
+      ? {
+          month: firstOwnedRow.monthIndex,
+          date: firstOwnedRow.loanDate,
+          isOwned: firstOwnedRow.isOwned,
+          feeThisMonth: firstOwnedRow.feeThisMonth,
+        }
+      : null,
+    firstFeeRow: firstFeeRow
+      ? {
+          month: firstFeeRow.monthIndex,
+          date: firstFeeRow.loanDate,
+          isOwned: firstFeeRow.isOwned,
+          feeThisMonth: firstFeeRow.feeThisMonth,
+        }
+      : null,
+    ownedRowsWithFees: schedule
+      .filter(r => r.isOwned)
+      .slice(0, 6)
+      .map(r => ({
+        month: r.monthIndex,
+        date: r.loanDate,
+        feeThisMonth: r.feeThisMonth,
+      })),
+  })
+
   const balance = getCurrentLoanBalance({ amort: { schedule } }, new Date())
 
   return {
@@ -321,6 +364,7 @@ export function useLoans(userId: string) {
         URL.revokeObjectURL(valuationCurvesUrl)
 
         await loadConfig()
+        await loadUsers()
 
         const [loansData, borrowersRaw] = await Promise.all([
           fetch(LOANS_URL).then(res => {

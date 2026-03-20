@@ -72,14 +72,6 @@ export function usePortfolio(userId: string): PortfolioData {
     // ─── 2. Derive loans with ROI series ──────────────────────────────────
     const loansWithRoi = deriveLoansWithRoi(normalizedLoans)
 
-    console.log(
-      'PORTFOLIO LOANS',
-      loansWithRoi.map(l => ({
-        loanId: l.loanId,
-        id: l.id,
-        name: l.loanName,
-      }))
-    )
 
     // ─── 3. Build color map ───────────────────────────────────────────────
     const BASE_COLORS = [
@@ -125,6 +117,20 @@ const roiSpread =
 
     // ─── 6. Earnings ──────────────────────────────────────────────────────
     const loansWithEarnings = loansWithRoi.map(l => {
+
+
+      console.log('ROI HANDOFF CHECK', {
+        loanId: l.loanId,
+        amortFirstRow: l.amort?.schedule?.[0]
+          ? {
+              loanDate: l.amort.schedule[0].loanDate,
+              feeThisMonth: l.amort.schedule[0].feeThisMonth,
+              monthlyFees: l.amort.schedule[0].monthlyFees,
+            }
+          : null,
+      })
+
+
       const earningsSchedule = buildEarningsSchedule({
         amortSchedule: l.amort?.schedule ?? [],
         loanStartDate: l.loanStartDate,
@@ -134,18 +140,50 @@ const roiSpread =
         today: TODAY,
       })
     
-      console.log('EARNINGS DEBUG', {
-        user: userId,
-        loanId: String(l.loanId ?? l.id ?? ''),
-        name: l.loanName ?? l.name,
-        ownershipLots: l.ownershipLots,
-        matchingLots: (l.ownershipLots ?? []).filter((lot: any) => lot?.user === userId),
-        ownershipPctOnRows: earningsSchedule.slice(0, 6).map((r: any) => ({
-          date: r.loanDate,
-          ownershipPct: r.ownershipPct,
-          isOwned: r.isOwned,
-          monthlyFees: r.monthlyFees,
+      console.log('ROI HANDOFF CHECK', {
+        loanId: l.loanId,
+        firstAmortRow: l.amort?.schedule?.[0]
+          ? {
+              loanDate: l.amort.schedule[0].loanDate,
+              feeThisMonth: l.amort.schedule[0].feeThisMonth,
+              interest: l.amort.schedule[0].interest,
+              payment: l.amort.schedule[0].payment,
+              balance: l.amort.schedule[0].balance,
+            }
+          : null,
+        firstOwnedAmortRow: (l.amort?.schedule ?? []).find((r: any) => r.isOwned)
+          ? (() => {
+              const r = (l.amort?.schedule ?? []).find((r: any) => r.isOwned)
+              return {
+                loanDate: r.loanDate,
+                feeThisMonth: r.feeThisMonth,
+                interest: r.interest,
+                payment: r.payment,
+                balance: r.balance,
+              }
+            })()
+          : null,
+      })
+
+
+      console.log('EARNINGS SCHEDULE CHECK', {
+        userId,
+        loanId: l.loanId,
+        firstRow: earningsSchedule[0]
+          ? {
+              loanDate: earningsSchedule[0].loanDate,
+              feeThisMonth: earningsSchedule[0].feeThisMonth,
+              monthlyFees: earningsSchedule[0].monthlyFees,
+              monthlyNet: earningsSchedule[0].monthlyNet,
+              cumFees: earningsSchedule[0].cumFees,
+            }
+          : null,
+        firstSix: earningsSchedule.slice(0, 6).map(r => ({
+          loanDate: r.loanDate,
           feeThisMonth: r.feeThisMonth,
+          monthlyFees: r.monthlyFees,
+          monthlyNet: r.monthlyNet,
+          cumFees: r.cumFees,
         })),
       })
     
