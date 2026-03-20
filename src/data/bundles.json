@@ -222,10 +222,10 @@
       "bundleId": "BDL-202603-20193245905-G8Z3",
       "bundleName": "SEASN-8.51-5.9yr-202603",
       "strategy": "seasoned",
-      "status": "draft",
+      "status": "offered",
       "createdBy": "jeff",
       "createdAt": "2026-03-20T23:32:45.905Z",
-      "updatedAt": "2026-03-20T23:32:45.905Z",
+      "updatedAt": "2026-03-20T23:32:57.524Z",
       "targetBuyer": "any",
       "loans": [
         {
@@ -292,5 +292,5 @@
       "pricingSource": "system"
     }
   ],
-  "sha": "602a87b51d0064e26a7c581064bd0f9cd23d8cf8"
+  "sha": "2caa4286880c67b510eda1d59bae4f527653617b"
 }
