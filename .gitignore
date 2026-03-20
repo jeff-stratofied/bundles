@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+admin.html
+admin.html.bak
+admin.html.bak2
