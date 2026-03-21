@@ -544,7 +544,15 @@
       "graceYears": 0,
       "loanStatus": "",
       "feeWaiver": "none",
-      "events": [],
+      "events": [
+        {
+          "id": "1503cf45-cdf7-4fb7-a157-2bd7806d00aa",
+          "type": "forbearance",
+          "startDate": "2025-09-10",
+          "months": 2,
+          "amount": 100
+        }
+      ],
       "ownershipLots": [
         {
           "user": "jeff",
