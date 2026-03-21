@@ -183,6 +183,11 @@
           "type": "prepayment",
           "date": "2024-07-01",
           "amount": 5000
+        },
+        {
+          "id": "9f4b40a2-5d7a-4367-8aef-8d9c0b0cde20",
+          "type": "paid",
+          "date": "2026-02-04"
         }
       ],
       "ownershipLots": [
@@ -338,8 +343,8 @@
           "id": "1391a1ac-1164-47e2-b020-d9e12c607712",
           "type": "past_delinquency",
           "startDate": "2025-11-12",
-          "duration": 60,
-          "endDate": "2026-01-11"
+          "endDate": "2026-01-11",
+          "duration": 60
         }
       ],
       "ownershipLots": [
