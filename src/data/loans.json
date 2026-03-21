@@ -333,7 +333,15 @@
       "graceYears": 0,
       "loanStatus": "",
       "feeWaiver": "all",
-      "events": [],
+      "events": [
+        {
+          "id": "1391a1ac-1164-47e2-b020-d9e12c607712",
+          "type": "past_delinquency",
+          "startDate": "2025-11-12",
+          "duration": 60,
+          "endDate": "2026-01-11"
+        }
+      ],
       "ownershipLots": [
         {
           "user": "jeff",
@@ -548,9 +556,9 @@
         {
           "id": "57dd676a-8e29-431e-9ef2-0b51e53760ea",
           "type": "forbearance",
+          "amount": 50,
           "startDate": "2025-09-10",
-          "months": 2,
-          "amount": 50
+          "months": 2
         }
       ],
       "ownershipLots": [
