@@ -290,7 +290,80 @@
       "schoolCount": 3,
       "notes": "",
       "pricingSource": "system"
+    },
+    {
+      "bundleId": "BDL-202603-21144138322-FZ00",
+      "bundleName": "CUST-8.90-5.0yr-202603",
+      "strategy": "custom",
+      "status": "offered",
+      "createdBy": "jeff",
+      "createdAt": "2026-03-21T18:41:38.321Z",
+      "updatedAt": "2026-03-21T18:41:38.322Z",
+      "targetBuyer": "any",
+      "loans": [
+        {
+          "loanId": "L7IM1YE0Q8",
+          "loanName": "TTCH 2025 10.0",
+          "school": "Texas Tech University",
+          "ownershipPct": 1,
+          "principal": 10000,
+          "nominalRate": 10,
+          "termYears": 10,
+          "graceYears": 0,
+          "purchasePrice": 10000,
+          "currentBalance": 9700.93,
+          "npv": 10601.706981703208,
+          "irr": 8.96689801812172,
+          "wal": 5.858092,
+          "riskTier": "HIGH"
+        },
+        {
+          "loanId": "C0RAT4N23A",
+          "loanName": "OSU 2024 8.00",
+          "school": "Ohio State",
+          "ownershipPct": 0.5,
+          "principal": 7500,
+          "nominalRate": 8,
+          "termYears": 8,
+          "graceYears": 0.5,
+          "purchasePrice": 3750,
+          "currentBalance": 4130.85,
+          "npv": 1752.4087972460559,
+          "irr": 7.047756636142729,
+          "wal": 3.6935034590567395,
+          "riskTier": "HIGH"
+        },
+        {
+          "loanId": "BHH0A15A7A",
+          "loanName": "USC 2025 7.90",
+          "school": "USC",
+          "ownershipPct": 1,
+          "principal": 9000,
+          "nominalRate": 7.9,
+          "termYears": 7,
+          "graceYears": 0.5,
+          "purchasePrice": 9000,
+          "currentBalance": 8721.21,
+          "npv": 8562.007327694851,
+          "irr": 6.947625499963761,
+          "wal": 4.361529261084346,
+          "riskTier": "HIGH"
+        }
+      ],
+      "askingPrice": 20916.12,
+      "askingPremiumPct": 0,
+      "suggestedPrice": 20916.12,
+      "totalPar": 20487.56,
+      "weightedRate": 8.9044,
+      "bundleWAL": 5,
+      "bundleNPV": 20916.12,
+      "riskMix": {
+        "HIGH": 3
+      },
+      "schoolCount": 3,
+      "notes": "",
+      "pricingSource": "user"
     }
   ],
-  "sha": "2caa4286880c67b510eda1d59bae4f527653617b"
+  "sha": "6aa681cd7e02243f4cecf2c63989b6698e1b44f1"
 }
